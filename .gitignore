@@ -1,0 +1,14 @@
+# Linux & OSX
+*~
+.DS_Store
+*.log
+
+# Build & Packages
+node_modules
+vendor
+
+# App
+.parcel
+dist
+
+.cache
