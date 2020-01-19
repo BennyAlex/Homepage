@@ -13,9 +13,9 @@
 		"url": "https://github.com/BennyAlex/Resuemee.git"
 	},
 	"scripts": {
-		"dev": "rm -rf dist && parcel app/index.html -d dist --cache-dir .parcel",
-		"build": "rm -rf dist && parcel build app/index.html -d dist --cache-dir .parcel --no-source-maps --detailed-report 20",
-		"clean": "rm -rf dist .parcel"
+		"dev": "rm -rf docs && parcel app/index.html -d docs --cache-dir .parcel",
+		"build": "rm -rf docs && parcel build app/index.html -d docs --cache-dir .parcel --no-source-maps --detailed-report 20",
+		"clean": "rm -rf docs .parcel"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.8.3",

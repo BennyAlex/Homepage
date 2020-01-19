@@ -1,0 +1,106 @@
+#app-container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 65px;
+}
+/* navigation styles */
+#navbar {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+          justify-content: flex-end;
+  box-shadow: 0 0 20px 0 rgba(0,0,0,0.25);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background-color: rgba(255,255,255,0.4);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  font-size: 21px;
+  z-index: 99;
+}
+#navbar a {
+  text-decoration: none;
+  color: rgba(0,0,0,0.85);
+  padding: 0 17px;
+}
+#navbar #title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  margin-right: auto;
+}
+#github {
+  position: absolute;
+  color: rgba(255,255,255,0.8);
+  bottom: 9px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  text-decoration: none;
+}
+@media only screen and (max-width: 790px) {
+  #github {
+    display: none;
+  }
+}
+@media only screen and (max-height: 623px) {
+  #app-container {
+    height: auto;
+  }
+}
+
+.glass-card[data-v-a4495e] {
+  margin: 20px;
+  width: 750px;
+  height: 520px;
+  box-shadow: 0 0 20px 0 rgba(0,0,0,0.25);
+  border-radius: 8px;
+  background-color: rgba(255,255,255,0.25);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  font-size: 19px;
+  color: rgba(0,0,0,0.7);
+  padding: 13px;
+}
+.title-bar[data-v-a4495e] {
+  display: -webkit-box;
+  display: flex;
+  margin-bottom: 6px;
+}
+.icon[data-v-a4495e] {
+  width: 33.333%;
+}
+.title[data-v-a4495e] {
+  font-size: 22px;
+  color: rgba(0,0,0,0.8);
+  width: 33.333%;
+  text-align: center;
+}
+.title-large[data-v-a4495e] {
+  width: 100%;
+}
+.card-content[data-v-a4495e] {
+  padding: 13px;
+}
+@media only screen and (max-width: 790px) {
+.glass-card[data-v-a4495e] {
+    width: 100%;
+}
+}
+@media only screen and (max-width: 500px) {
+.glass-card[data-v-a4495e] {
+    margin: 14px;
+}
+}
+

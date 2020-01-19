@@ -56,21 +56,7 @@ const routes = [
 
 export default {
 	name: "App",
-	router: new VueRouter({ routes }),
-	mounted() {
-		isSmallScreen()
-		document.addEventListener('resize', this.isSmallScreen)
-	},
-	methods: {
-		isSmallScreen() {
-			const documentWidth =
-				document.body.clientWidth ||
-				document.documentElement.clientWidth ||
-				window.innerWidth;
-			
-			window.isSmallScreen = documentWidth <= 790
-		}
-	}
+	router: new VueRouter({ routes })
 };
 </script>
 
