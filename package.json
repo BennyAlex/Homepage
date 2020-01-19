@@ -1,5 +1,5 @@
 {
-	"name": "Resuemee",
+	"name": "resuemee",
 	"description": "Mein Resümee",
 	"version": "1.0.0",
 	"license": "GPL-3.0",
@@ -14,7 +14,7 @@
 	},
 	"scripts": {
 		"dev": "rm -rf dist && parcel app/index.html -d dist --cache-dir .parcel",
-		"build": "rm -rf docs && parcel build app/index.html -d docs --cache-dir .parcel --no-source-maps --detailed-report 20",
+		"build": "rm -rf docs && parcel build app/index.html -d docs --cache-dir .parcel --no-source-maps --detailed-report 20 --public-url ./",
 		"clean": "rm -rf docs .parcel dist"
 	},
 	"devDependencies": {
