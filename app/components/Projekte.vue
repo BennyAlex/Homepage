@@ -1,7 +1,7 @@
 /** * Home */
 
 <template>
-	<glass-card title="Willkommen!">
+	<glass-card title="Projekte" :showBackButton="true">
 		Ich bin Benjamin Franz
 		<div class="subline">Junior Fullstack Entwickler</div>
 	</glass-card>
