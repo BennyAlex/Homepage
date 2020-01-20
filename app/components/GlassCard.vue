@@ -26,6 +26,10 @@
 
 		<div class="card-content">
 			<slot></slot>
+
+			<div class="animated-icon menu-cross-s" ref="icon" @click="toggleAnimation()">
+				<div class="ani" ref="ani"></div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -44,7 +48,13 @@ export default {
 			required: false
 		}
 	},
-	data: () => ({})
+	data: () => ({}),
+	methods: {
+		toggleAnimation() {
+			//this.$refs.icon.classList.toggle("ani");
+			this.$refs.ani.classList.toggle("ani");
+		}
+	}
 };
 </script>
 
