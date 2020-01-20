@@ -39,7 +39,7 @@
 			</router-link>
 
 			<div id="menu-button" class="menu-cross-s" ref="button" @click="toggleSidebar()">
-				<div class="ani" ref="ani"></div>
+				<div class="ani"></div>
 			</div>
 		</div>
 
@@ -101,10 +101,9 @@ export default {
 	}),
 	methods: {
 		toggleSidebar() {
-			// this.$refs.sidebar.classList.toggle("open");
+			this.$refs.sidebar.classList.toggle("open");
 			this.$refs.main.classList.toggle("move-to-left");
-			// this.$refs.button.classList.toggle("ani");
-			this.$refs.ani.classList.toggle("ani");
+			this.$refs.button.classList.toggle("animate");
 
 			for (let link of this.$refs["sidebar-list"].children) {
 				link.classList.toggle("active");
