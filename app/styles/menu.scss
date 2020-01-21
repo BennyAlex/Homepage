@@ -1,6 +1,9 @@
+$items: 5;
+$sidebar-width: 230px;
+
 main,
 #sidebar {
-	transition: all 0.7s ease-in-out;
+	transition: all 0.6s ease-in-out;
 }
 
 main {
@@ -11,86 +14,56 @@ main {
 
 #sidebar {
 	height: 100%;
-	width: 400px;
+	width: $sidebar-width;
 	position: fixed;
-	top: 0;
+	top: 64px;
 	right: 0;
-	transform: translateX(400px);
-	background-color: #ef8354;
+	transform: translateX($sidebar-width);
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 2;
+	backdrop-filter: blur(12px);
+	padding-top: 22px;
 }
 
 #sidebar.open {
 	transform: translateX(0);
 }
 
-#sidebar-list {
-	padding: 0;
-	margin: 0;
-	list-style: none;
-	position: relative;
-	margin-top: 150px;
+#sidebar a {
 	text-align: center;
-}
-
-#sidebar-list .sidebar-item {
-	margin: 30px 0;
 	opacity: 0;
-	transform: translateY(-20px);
-}
-
-#sidebar-list .sidebar-item:first-child {
-	transition: all 0.7s 0.2s ease-in-out;
-}
-
-#sidebar-list .sidebar-item:nth-child(2) {
-	transition: all 0.7s 0.4s ease-in-out;
-}
-
-#sidebar-list .sidebar-item:nth-child(3) {
-	transition: all 0.7s 0.6s ease-in-out;
-}
-
-#sidebar-list .sidebar-item:last-child {
-	transition: all 0.7s 0.6s ease-in-out;
-}
-
-#sidebar-list .sidebar-item.active {
-	opacity: 1;
-	transform: translateY(0px);
-}
-
-#sidebar-list .sidebar-item a {
+	width: $sidebar-width;
 	color: #fff;
 	text-decoration: none;
-	font-size: 1.8em;
-	text-transform: uppercase;
-	position: relative;
-	padding-bottom: 7px;
+	font-size: 18px;
+	font-weight: 600;
+	width: $sidebar-width;
+	padding: 22px 0;
+	display: block;
 }
 
-#sidebar-list .sidebar-item a:before {
-	content: "";
-	width: 0;
-	height: 2px;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	background-color: #fff;
-	transition: all 0.4s ease-in-out;
+// Setting delays for the nav items in open transition
+@for $i from 1 through $items {
+	#sidebar.open a:nth-child(#{$i}) {
+		$delay: (($items + 1) - $i) * 0.12s;
+		transition: background-color 0.3s ease-in-out, opacity 0.6s ease $delay;
+	}
 }
 
-#sidebar-list .sidebar-item a:hover:before {
-	width: 100%;
+#sidebar.open a {
+	opacity: 1;
 }
 
-#menu-button,
-#sidebar {
-	z-index: 99 !important;
+#sidebar a.router-link-exact-active {
+	background-color: rgba(0, 0, 0, 0.25);
 }
 
-.move-to-left,
-#menu-button.animate {
-	transform: translateX(-400px);
+#sidebar a:hover {
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.move-to-left {
+	transform: translateX(-$sidebar-width);
 }
 
 #menu-button {
@@ -99,7 +72,9 @@ main {
 	height: 38px;
 	cursor: pointer;
 	transition: all 0.7s ease-in-out;
-	display: inline-block;
+	display: none;
+	z-index: 99 !important;
+	margin: 0 17px;
 }
 
 #menu-button .ani {
@@ -145,4 +120,10 @@ main {
 #menu-button.menu-cross-s.animate .ani:after {
 	top: 0;
 	transform: rotate(-45deg);
+}
+
+@media only screen and (max-width: 790px) {
+	#menu-button {
+		display: block;
+	}
 }

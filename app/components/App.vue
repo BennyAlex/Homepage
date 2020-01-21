@@ -3,15 +3,6 @@
 <template>
 	<div id="app-container">
 		<main id="main" ref="main">
-			<!-- <div id="navbar">
-				<router-link id="title" to="/" class="navbar-item">
-					Benjamin Franz
-				</router-link>
-				<router-link to="/projekte" class="navbar-item">
-					Projekte
-				</router-link>
-			</div> -->
-
 			<transition
 				name="fade"
 				mode="out-in"
@@ -38,31 +29,24 @@
 				Projekte
 			</router-link>
 
-			<div id="menu-button" class="menu-cross-s" ref="button" @click="toggleSidebar()">
+			<div
+				id="menu-button"
+				class="menu-cross-s"
+				ref="button"
+				@click="toggleSidebar()"
+			>
 				<div class="ani"></div>
 			</div>
 		</div>
 
 		<div id="sidebar" ref="sidebar">
-			<ul id="sidebar-list" ref="sidebar-list">
-				<li class="sidebar-item">
-					<a href="#">Item 1</a>
-				</li>
-				<li class="sidebar-item">
-					<a href="#">Item 2</a>
-				</li>
-				<li class="sidebar-item">
-					<a href="#">Item 3</a>
-				</li>
-				<li class="sidebar-item">
-					<a href="#">Item 4</a>
-				</li>
-				<li class="sidebar-item">
-					<router-link to="/projekte" class="navbar-item">
-						Projekte
-					</router-link>
-				</li>
-			</ul>
+			<a href="#">Item 1</a>
+			<a href="#">Item 2</a>
+			<a href="#">Item 3</a>
+			<a href="#">Item 4</a>
+			<router-link to="/projekte" class="navbar-item">
+				Projekte
+			</router-link>
 		</div>
 	</div>
 </template>
@@ -104,11 +88,6 @@ export default {
 			this.$refs.sidebar.classList.toggle("open");
 			this.$refs.main.classList.toggle("move-to-left");
 			this.$refs.button.classList.toggle("animate");
-
-			for (let link of this.$refs["sidebar-list"].children) {
-				link.classList.toggle("active");
-			}
-
 			this.sideBarOpen = !this.sideBarOpen;
 		}
 	}
@@ -138,7 +117,7 @@ export default {
 	width 100%
 	height 64px
 	background-color rgba(255, 255, 255, 0.4)
-	backdrop-filter blur(6px)
+	backdrop-filter blur(5px)
 	font-size 21px
 	z-index 5
 
@@ -170,7 +149,7 @@ export default {
 	text-decoration none
 
 @media only screen and (max-width 790px)
-	#github
+	#github, #navbar-top .navbar-item:not(#title)
 		display none
 
 @media only screen and (max-height 623px)

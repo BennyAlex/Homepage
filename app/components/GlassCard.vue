@@ -56,7 +56,7 @@ export default {
 	box-shadow 0 0 20px 0 rgba(0, 0, 0, 0.25)
 	border-radius 8px
 	background-color rgba(255, 255, 255, 0.25)
-	backdrop-filter blur(6px)
+	backdrop-filter blur(5px)
 	font-size 19px
 	color rgba(0, 0, 0, 0.7)
 	padding 13px
