@@ -1,7 +1,7 @@
-/** * Projekte */
+/** * Kontakt */
 
 <template>
-	<glass-card title="Projekte" :showBackButton="true">
+	<glass-card title="Kontakt" :showBackButton="true">
 		Ich bin Benjamin Franz
 		<div class="subline">Junior Fullstack Entwickler</div>
 	</glass-card>
@@ -11,7 +11,7 @@
 import GlassCard from "./GlassCard.vue";
 
 export default {
-	name: "Projekte",
+	name: "Kontakt",
 	components: { GlassCard },
 	data: () => ({})
 };

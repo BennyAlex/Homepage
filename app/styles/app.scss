@@ -1,0 +1,125 @@
+/** * app.scss */
+
+$mdc-theme-primary: #000;
+$mdc-theme-secondary: #000;
+
+@charset "utf-8";
+@import "normalize.css/normalize.css";
+@import "@material/button/mdc-button";
+@import "@material/icon-button/mdc-icon-button";
+@import "./menu.scss";
+ 
+// ----- main styles ----- 
+
+// .mdc-ripple-upgraded--background-focused {
+// 	visibility: hidden;
+// 	opacity: 0;
+// }
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	border: 0;
+	font-family: "Roboto Slab", serif;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	background: url("/images/background.jpg") no-repeat;
+	background-size: cover;
+	background-position: top;
+}
+
+.no-select,
+button,
+a {
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+}
+
+button, .mdc-button {
+	-webkit-appearance: none;
+	appearance: none;
+	outline: none;
+	text-transform: none;
+}
+
+a,
+button {
+	cursor: pointer;
+}
+
+.subline {
+	font-size: 16px;
+	color: rgba(0,0,0,0.6);
+}
+
+@-webkit-keyframes autofill {
+	to {
+		background: transparent;
+	}
+}
+
+input-webkit-autofill,
+input-webkit-autofill:active,
+input-webkit-autofill:hover,
+input-webkit-autofill:focus {
+	-webkit-animation-name: autofill;
+	-webkit-animation-fill-mode: both;
+	-webkit-transition-delay: 9999s;
+	-webkit-transition: color 9999s ease-out, background-color 9999s ease-out;
+}
+
+input-ms-clear {
+	display: none;
+}
+
+inputfocus,
+selectfocus,
+textareafocus,
+buttonfocus {
+	outline: none;
+}
+
+noscript p {
+	position: fixed;
+	top: 5%;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 18px;
+}
+
+#app {
+	min-height: 100%;
+	min-width: 100%;
+}
+
+[v-cloak] {
+	visibility: hidden;
+}
+
+.fade-enter-active {
+	transition: opacity 0.4s ease;
+}
+
+.fade-leave-active {
+	transition: all 0.4s ease;
+	opacity: 0.4;
+}
+
+.fade-enter,
+.fade-leave-to {
+	opacity: 0;
+}

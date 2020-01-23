@@ -15,38 +15,50 @@
 			<a
 				href="https://github.com/BennyAlex/Resuemee"
 				target="_blank"
-				id="github"
+				class="github"
 			>
 				Sourcecode in Github anzeigen
 			</a>
 		</main>
 
 		<div id="navbar-top">
-			<router-link id="title" to="/" class="navbar-item">
+			<md-button id="app-title" @click.native="transitionTo($event, '/')">
 				Benjamin Franz
-			</router-link>
-			<router-link to="/projekte" class="navbar-item">
+			</md-button>
+
+			<md-button @click.native="transitionTo($event, '/projekte')">
 				Projekte
-			</router-link>
+			</md-button>
+
+			<md-button @click.native="transitionTo($event, '/kontakt')">
+				Kontakt
+			</md-button>
 
 			<div
 				id="menu-button"
 				class="menu-cross-s"
-				ref="button"
+				ref="menuButton"
 				@click="toggleSidebar()"
 			>
-				<div class="ani"></div>
+				<div id="ani" class="ani"></div>
 			</div>
 		</div>
 
 		<div id="sidebar" ref="sidebar">
 			<a href="#">Item 1</a>
-			<a href="#">Item 2</a>
-			<a href="#">Item 3</a>
-			<a href="#">Item 4</a>
-			<router-link to="/projekte" class="navbar-item">
+			<router-link to="/kontakt">
+				Kontakt
+			</router-link>
+			<router-link to="/projekte">
 				Projekte
 			</router-link>
+			<a
+				href="https://github.com/BennyAlex/Resuemee"
+				target="_blank"
+				class="github sidebar"
+			>
+				Sourcecode in Github anzeigen
+			</a>
 		</div>
 	</div>
 </template>
@@ -56,7 +68,11 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import Home from "./Home.vue";
+import Kontakt from "./Kontakt.vue";
 import Projekte from "./Projekte.vue";
+import MdButton from "./MdButton.vue";
+
+import { MDCRipple } from "@material/ripple";
 
 Vue.use(VueRouter);
 
@@ -65,6 +81,10 @@ const routes = [
 	{
 		path: "/",
 		component: Home
+	},
+	{
+		path: "/kontakt",
+		component: Kontakt
 	},
 	{
 		path: "/projekte",
@@ -80,6 +100,7 @@ const routes = [
 export default {
 	name: "App",
 	router: new VueRouter({ routes }),
+	components: { MdButton },
 	data: () => ({
 		sideBarOpen: false
 	}),
@@ -87,8 +108,49 @@ export default {
 		toggleSidebar() {
 			this.$refs.sidebar.classList.toggle("open");
 			this.$refs.main.classList.toggle("move-to-left");
-			this.$refs.button.classList.toggle("animate");
+			this.$refs.menuButton.classList.toggle("animate");
 			this.sideBarOpen = !this.sideBarOpen;
+		},
+		closeSidebar(e) {
+			if (this.sideBarOpen) {
+				if (
+					e.target.id !== "menu-button" &&
+					e.target.id !== "sidebar" &&
+					e.target.id !== "ani"
+				) {
+					this.toggleSidebar();
+				}
+			}
+		},
+		transitionTo(event, targetRoute) {
+			if (event.target.tagName !== "DIV") {
+				debugger;
+			}
+			if (this.$router.currentRoute.path !== targetRoute) {
+				document
+					.querySelector(".active-route")
+					.classList.remove("active-route");
+				event.target.parentElement.classList.add("active-route");
+				this.$router.push(targetRoute);
+			}
+		}
+	},
+	mounted() {
+		window.addEventListener("click", this.closeSidebar);
+		const navButtons = document.querySelectorAll("#navbar-top .mdc-button");
+		const currentRouteName = this.$router.currentRoute.path;
+
+		if (currentRouteName === "/") {
+			document.querySelector("#app-title").classList.add("active-route");
+		} else {
+			for (let button of navButtons) {
+				if (
+					button.innerText.toLowerCase() ===
+					currentRouteName.replace("/", "")
+				) {
+					button.classList.add("active-route");
+				}
+			}
 		}
 	}
 };
@@ -98,6 +160,7 @@ export default {
 #app-container
 	height 100vh
 	width 100vw
+	height 100%
 
 #main
 	display flex
@@ -118,41 +181,50 @@ export default {
 	height 64px
 	background-color rgba(255, 255, 255, 0.4)
 	backdrop-filter blur(5px)
-	font-size 21px
 	z-index 5
 
-#navbar-top .navbar-item
+#navbar-top .mdc-button
+	height 100%
+	padding 0 16px
 	text-decoration none
 	color rgba(0, 0, 0, 0.85)
-	padding 0 17px
-	height 64px
-	line-height 64px
+	font-size 19px
+	border-radius 0
 
-#navbar-top a:hover
-	background rgba(255, 255, 255, 0.5) !important
+#navbar-top .mdc-button .mdc-button__ripple
+	border-radius 0
 
-#navbar-top #title
+#navbar-top #app-title
 	font-weight 700
 	margin-right auto
 
-#navbar-top .router-link-exact-active:not(#title)
+#navbar-top .mdc-button:not(#app-title).active-route
+	background rgba(0, 0, 0, 0.102)
 	text-decoration underline
-	background rgba(255, 255, 255, 0.3)
-	color rgba(0, 0, 0, 0.01)
 
-#github
+#navbar-top .mdc-button:hover
+	background rgba(0, 0, 0, 0.2) !important
+
+.github
 	position absolute
 	color rgba(255, 255, 255, 0.8)
-	bottom 9px
+	bottom 11px
 	left 50%
 	transform translate(-50%, 0)
 	text-decoration none
 
 @media only screen and (max-width 790px)
-	#github, #navbar-top .navbar-item:not(#title)
+	#navbar-top .navbar-item:not(#title)
+		display none
+
+@media only screen and (max-width 470px)
+	.github:not(.sidebar)
 		display none
 
 @media only screen and (max-height 623px)
 	#app-container
 		height auto
+
+	.github:not(.sidebar)
+		display none
 </style>

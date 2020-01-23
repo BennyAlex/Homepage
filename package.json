@@ -13,8 +13,8 @@
 		"url": "https://github.com/BennyAlex/Resuemee.git"
 	},
 	"scripts": {
-		"dev": "rm -rf dist && parcel app/index.html -d dist --cache-dir .parcel",
-		"build": "rm -rf docs && parcel build app/index.html -d docs --cache-dir .parcel --no-source-maps --detailed-report 20 --public-url ./",
+		"dev": "rm -rf dist && parcel app/index.html -d dist --no-cache",
+		"build": "rm -rf docs && parcel build app/index.html -d docs --no-cache --no-source-maps --detailed-report 20 --public-url ./",
 		"clean": "rm -rf docs .parcel dist"
 	},
 	"devDependencies": {
@@ -31,7 +31,12 @@
 		"vue-template-compiler": "~2.6.10"
 	},
 	"dependencies": {
-		"normalize-styl": "~4.1.1",
+		"@material/button": "^4.0.0",
+		"@material/density": "^4.0.0",
+		"@material/icon-button": "^4.0.0",
+		"@material/ripple": "^4.0.0",
+		"normalize": "^0.3.1",
+		"normalize.css": "^8.0.1",
 		"vue": "~2.6.10",
 		"vue-router": "~3.1.3"
 	}

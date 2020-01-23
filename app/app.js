@@ -22,6 +22,20 @@ let init = () => {
 			this.$nextTick(function() {
 				this.isSmallScreen();
 				window.addEventListener("resize", this.isSmallScreen);
+				window.addEventListener(
+					"mousedown",
+					this.removeRippleAfterClick,
+					{
+						passive: true
+					}
+				);
+				window.addEventListener(
+					"mouseup",
+					this.removeRippleAfterClick,
+					{
+						passive: true
+					}
+				);
 			});
 		},
 		methods: {
@@ -32,6 +46,16 @@ let init = () => {
 					window.innerWidth;
 
 				window.isSmallScreen = documentWidth <= 790;
+			},
+			removeRippleAfterClick(e) {
+				let { target } = e;
+
+				const ripples = document.querySelectorAll('.mdc-ripple-upgraded--background-focused')
+				
+				for (let ripple of ripples) {
+					ripple.classList.remove("mdc-ripple-upgraded--background-focused")
+					console.log('removed')
+				}
 			}
 		}
 	});

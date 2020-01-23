@@ -2,22 +2,11 @@
 
 <template>
 	<div class="glass-card">
-		<div class="title-bar">
+		<div class="title-bar no-select">
 			<div class="icon" v-if="showBackButton">
-				<router-link to="/">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
-					>
-						<path d="M0 0h24v24H0z" fill="none" />
-						<path
-							fill="#333"
-							d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-						/>
-					</svg>
-				</router-link>
+				<icon-button @click.native="goBack">
+					arrow_back
+				</icon-button>
 			</div>
 			<div :class="showBackButton ? 'title' : 'title title-large'">
 				{{ title }}
@@ -31,8 +20,11 @@
 </template>
 
 <script>
+import IconButton from "./IconButton.vue";
+
 export default {
 	name: "glass-card",
+	components: { IconButton },
 	props: {
 		title: {
 			type: String,
@@ -44,7 +36,12 @@ export default {
 			required: false
 		}
 	},
-	data: () => ({})
+	data: () => ({}),
+	methods: {
+		goBack() {
+			this.$router.go(-1);
+		}
+	}
 };
 </script>
 
@@ -61,15 +58,17 @@ export default {
 	color rgba(0, 0, 0, 0.7)
 	padding 13px
 
-
 .title-bar
 	display flex
-	margin-bottom 6px
-
+	align-items center
+	margin-bottom 10px
 
 .icon
 	width 33.333%
 
+.mdc-icon-button {
+	color: rgba(0, 0, 0, 0.8);
+}
 
 .title
 	font-size 22px
