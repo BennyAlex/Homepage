@@ -64,7 +64,7 @@ main {
 	background-color: rgba(0, 0, 0, 0.3);
 }
 
-#sidebar a:hover {
+body:not(.disable-hover) #sidebar a:hover {
 	background-color: rgba(0, 0, 0, 0.7);
 }
 

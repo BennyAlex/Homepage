@@ -18,8 +18,20 @@ let init = () => {
 	new Vue({
 		el: "#app",
 		render: h => h(App),
+		data: () => ({
+			lastTouchTime: 0
+		}),
 		mounted() {
-			this.$nextTick(function() {
+			this.$nextTick(() => {
+				window.addEventListener(
+					"touchstart",
+					() => {
+						this.lastTouchTime = new Date();
+					},
+					true
+				);
+				window.addEventListener("touchstart", this.disableHover, true);
+				window.addEventListener("mousemove", this.enableHover, true);
 				this.isSmallScreen();
 				window.addEventListener("resize", this.isSmallScreen);
 				window.addEventListener(
@@ -36,6 +48,20 @@ let init = () => {
 						passive: true
 					}
 				);
+				window.addEventListener(
+					"touchend",
+					this.removeRippleAfterClick,
+					{
+						passive: true
+					}
+				);
+				window.addEventListener(
+					"touchstart",
+					this.removeRippleAfterClick,
+					{
+						passive: true
+					}
+				);
 			});
 		},
 		methods: {
@@ -47,7 +73,7 @@ let init = () => {
 
 				window.isSmallScreen = documentWidth <= 790;
 			},
-			removeRippleAfterClick(e) {
+			removeRippleAfterClick() {
 				const ripples = document.querySelectorAll(
 					".mdc-ripple-upgraded--background-focused"
 				);
@@ -58,6 +84,16 @@ let init = () => {
 							"mdc-ripple-upgraded--background-focused"
 						);
 					}
+				}
+			},
+			enableHover() {
+				// discard emulated mouseMove events coming from touch events
+				if (new Date() - this.lastTouchTime < 500) return;
+				document.body.classList.remove("disable-hover");
+			},
+			disableHover() {
+				if (!document.body.classList.contains("disable-hover")) {
+					document.body.classList.add("disable-hover");
 				}
 			}
 		}

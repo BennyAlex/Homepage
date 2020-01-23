@@ -123,35 +123,41 @@ export default {
 			}
 		},
 		transitionTo(event, targetRoute) {
-			if (event.target.tagName !== "DIV") {
-				debugger;
-			}
 			if (this.$router.currentRoute.path !== targetRoute) {
-				document
-					.querySelector(".active-route")
-					.classList.remove("active-route");
-				event.target.parentElement.classList.add("active-route");
 				this.$router.push(targetRoute);
+			}
+		},
+		setActiveButton() {
+			const currentRoute = this.$router.currentRoute.path;
+			const activeButton = document.querySelector(
+				"#navbar-top .active-route"
+			);
+			if (activeButton) activeButton.classList.remove("active-route");
+			if (currentRoute === "/") {
+				document
+					.querySelector("#app-title")
+					.classList.add("active-route");
+			} else {
+				const navButtons = document.querySelectorAll(
+					"#navbar-top .mdc-button"
+				);
+				for (let button of navButtons) {
+					if (
+						button.innerText.toLowerCase() ===
+						currentRoute.replace("/", "")
+					) {
+						button.classList.add("active-route");
+					}
+				}
 			}
 		}
 	},
 	mounted() {
 		window.addEventListener("click", this.closeSidebar);
-		const navButtons = document.querySelectorAll("#navbar-top .mdc-button");
-		const currentRouteName = this.$router.currentRoute.path;
-
-		if (currentRouteName === "/") {
-			document.querySelector("#app-title").classList.add("active-route");
-		} else {
-			for (let button of navButtons) {
-				if (
-					button.innerText.toLowerCase() ===
-					currentRouteName.replace("/", "")
-				) {
-					button.classList.add("active-route");
-				}
-			}
-		}
+		this.setActiveButton();
+	},
+	updated() {
+		this.setActiveButton();
 	}
 };
 </script>
@@ -198,11 +204,11 @@ export default {
 	margin-right auto
 
 #navbar-top .mdc-button:not(#app-title).active-route
-	background rgba(0, 0, 0, 0.102)
+	background rgba(0, 0, 0, 0.19)
 	text-decoration underline
 
-#navbar-top .mdc-button:hover
-	background rgba(0, 0, 0, 0.2) !important
+body:not(.disable-hover) #navbar-top .mdc-button:hover
+	background rgba(0, 0, 0, 0.24) !important
 
 .github
 	position absolute
