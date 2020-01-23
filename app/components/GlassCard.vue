@@ -1,7 +1,7 @@
 /** * GlassCard */
 
 <template>
-	<div class="glass-card">
+	<div class="glass-card mdc-elevation--z10">
 		<div class="title-bar no-select">
 			<div class="icon" v-if="showBackButton">
 				<icon-button @click.native="goBack">
@@ -50,7 +50,6 @@ export default {
 	margin 20px
 	width 750px
 	height 520px
-	box-shadow 0 0 20px 0 rgba(0, 0, 0, 0.25)
 	border-radius 8px
 	background-color rgba(255, 255, 255, 0.25)
 	backdrop-filter blur(5px)

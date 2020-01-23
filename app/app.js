@@ -48,13 +48,16 @@ let init = () => {
 				window.isSmallScreen = documentWidth <= 790;
 			},
 			removeRippleAfterClick(e) {
-				let { target } = e;
+				const ripples = document.querySelectorAll(
+					".mdc-ripple-upgraded--background-focused"
+				);
 
-				const ripples = document.querySelectorAll('.mdc-ripple-upgraded--background-focused')
-				
 				for (let ripple of ripples) {
-					ripple.classList.remove("mdc-ripple-upgraded--background-focused")
-					console.log('removed')
+					if (ripple && ripple.classList) {
+						ripple.classList.remove(
+							"mdc-ripple-upgraded--background-focused"
+						);
+					}
 				}
 			}
 		}

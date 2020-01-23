@@ -1,9 +1,9 @@
-$items: 3;
+$items: 4;
 $sidebar-width: 240px;
 
 main,
 #sidebar {
-	transition: all 0.6s ease-in-out;
+	transition: all 0.5s ease-in-out;
 }
 
 main {
@@ -42,17 +42,17 @@ main {
 	display: block;
 }
 
-#sidebar a.github.sidebar {
+#sidebar a.github-sidebar {
 	bottom: 63px;
 	font-size: 14px;
 	font-weight: 400;
 }
 
 // Setting delays for the nav items in open transition
-@for $i from 1 through $items {
+@for $i from 0 through $items {
 	#sidebar.open a:nth-child(#{$i}) {
-		$delay: (($items + 1) - $i) * 0.12s;
-		transition: background-color 0.3s ease-in-out, opacity 0.6s ease $delay;
+		$delay: (($items + 1) - $i) * 0.14s;
+		transition: background-color 0.3s ease-in-out, opacity 0.66s ease $delay;
 	}
 }
 
@@ -77,7 +77,7 @@ main {
 	width: 38px;
 	height: 38px;
 	cursor: pointer;
-	transition: all 0.7s ease-in-out;
+	transition: all 0.5s ease-in-out;
 	display: none;
 	z-index: 99 !important;
 	margin: 0 17px;
@@ -96,7 +96,7 @@ main {
 	height: 3px;
 	width: 28px;
 	background: rgb(33, 33, 33);
-	transition: all 0.7s ease-in-out;
+	transition: all 0.5s ease-in-out;
 }
 
 #menu-button .ani:before,

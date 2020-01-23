@@ -21,7 +21,7 @@
 			</a>
 		</main>
 
-		<div id="navbar-top">
+		<div id="navbar-top" class="mdc-elevation--z20">
 			<md-button id="app-title" @click.native="transitionTo($event, '/')">
 				Benjamin Franz
 			</md-button>
@@ -44,7 +44,7 @@
 			</div>
 		</div>
 
-		<div id="sidebar" ref="sidebar">
+		<div id="sidebar" ref="sidebar" class="mdc-elevation--z1">
 			<a href="#">Item 1</a>
 			<router-link to="/kontakt">
 				Kontakt
@@ -55,7 +55,7 @@
 			<a
 				href="https://github.com/BennyAlex/Resuemee"
 				target="_blank"
-				class="github sidebar"
+				class="github github-sidebar"
 			>
 				Sourcecode in Github anzeigen
 			</a>
@@ -173,7 +173,6 @@ export default {
 	display flex
 	align-items center
 	justify-content flex-end
-	box-shadow 0 0 20px 0 rgba(0, 0, 0, 0.25)
 	position fixed
 	top 0
 	left 0
@@ -213,18 +212,19 @@ export default {
 	transform translate(-50%, 0)
 	text-decoration none
 
+
 @media only screen and (max-width 790px)
 	#navbar-top .navbar-item:not(#title)
 		display none
 
 @media only screen and (max-width 470px)
-	.github:not(.sidebar)
+	.github:not(.github-sidebar)
 		display none
 
 @media only screen and (max-height 623px)
 	#app-container
 		height auto
 
-	.github:not(.sidebar)
+	.github:not(.github-sidebar)
 		display none
 </style>
