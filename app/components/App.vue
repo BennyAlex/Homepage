@@ -26,38 +26,46 @@
 				Benjamin Franz
 			</md-button>
 
-			<md-button @click.native="transitionTo($event, '/projekte')">
-				Projekte
+			<md-button @click.native="transitionTo($event, '/')">
+				Lebenslauf
 			</md-button>
 
 			<md-button @click.native="transitionTo($event, '/kontakt')">
 				Kontakt
 			</md-button>
 
-			<div
-				id="menu-button"
-				class="menu-cross-s"
-				ref="menuButton"
-				@click="toggleSidebar()"
-			>
-				<div id="ani" class="ani"></div>
-			</div>
+			<md-button @click.native="transitionTo($event, '/projekte')">
+				Projekte
+			</md-button>
+
+			<icon-button id="menu-icon-button" @click.native="toggleSidebar">
+				<div id="menu-button" class="menu-cross-s" ref="menuButton">
+					<div id="ani" class="ani"></div>
+				</div>
+			</icon-button>
 		</div>
 
 		<div id="sidebar" ref="sidebar" class="mdc-elevation--z1">
-			<a href="#">Item 1</a>
-			<router-link to="/kontakt">
+			<md-button @click.native="transitionTo($event, '/')">
+				Lebenslauf
+			</md-button>
+
+			<md-button @click.native="transitionTo($event, '/kontakt')">
 				Kontakt
-			</router-link>
-			<router-link to="/projekte">
+			</md-button>
+
+			<md-button @click.native="transitionTo($event, '/projekte')">
 				Projekte
-			</router-link>
+			</md-button>
+
 			<a
 				href="https://github.com/BennyAlex/Resuemee"
 				target="_blank"
 				class="github github-sidebar"
 			>
-				Sourcecode in Github anzeigen
+				<md-button>
+					Sourcecode in Github anzeigen
+				</md-button>
 			</a>
 		</div>
 	</div>
@@ -68,6 +76,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import Home from "./Home.vue";
+import IconButton from "./IconButton.vue";
 import Kontakt from "./Kontakt.vue";
 import Projekte from "./Projekte.vue";
 import MdButton from "./MdButton.vue";
@@ -100,7 +109,7 @@ const routes = [
 export default {
 	name: "App",
 	router: new VueRouter({ routes }),
-	components: { MdButton },
+	components: { IconButton, MdButton },
 	data: () => ({
 		sideBarOpen: false
 	}),
@@ -129,18 +138,21 @@ export default {
 		},
 		setActiveButton() {
 			const currentRoute = this.$router.currentRoute.path;
-			const activeButton = document.querySelector(
-				"#navbar-top .active-route"
-			);
-			if (activeButton) activeButton.classList.remove("active-route");
+			const activeButtons = document.querySelectorAll(".active-route");
+			if (activeButtons) {
+				for (let button of activeButtons) {
+					button.classList.remove("active-route");
+				}
+			}
 			if (currentRoute === "/") {
 				document
 					.querySelector("#app-title")
 					.classList.add("active-route");
 			} else {
-				const navButtons = document.querySelectorAll(
-					"#navbar-top .mdc-button"
-				);
+				const navButtons = [
+					...document.querySelectorAll("#navbar-top .mdc-button"),
+					...document.querySelectorAll("#sidebar .mdc-button")
+				];
 				for (let button of navButtons) {
 					if (
 						button.innerText.toLowerCase() ===
@@ -208,7 +220,10 @@ export default {
 	text-decoration underline
 
 body:not(.disable-hover) #navbar-top .mdc-button:hover
-	background rgba(0, 0, 0, 0.24) !important
+	background rgba(0, 0, 0, 0.24)
+
+body.disable-hover #navbar-top .mdc-button:hover, body.disable-hover #navbar-top .mdc-button:hover *
+	background rgba(0, 0, 0, 0) !important
 
 .github
 	position absolute
@@ -220,16 +235,18 @@ body:not(.disable-hover) #navbar-top .mdc-button:hover
 
 
 @media only screen and (max-width 790px)
-	#navbar-top .navbar-item:not(#title)
+	#navbar-top .mdc-button:not(#app-title)
 		display none
 
 @media only screen and (max-width 470px)
 	.github:not(.github-sidebar)
 		display none
 
-@media only screen and (max-height 623px)
+@media only screen and (max-height 628px)
 	#app-container
 		height auto
+
+@media only screen and (max-height 678px)
 
 	.github:not(.github-sidebar)
 		display none

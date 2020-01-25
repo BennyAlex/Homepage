@@ -9,8 +9,8 @@ $mdc-theme-secondary: #000;
 @import "@material/icon-button/mdc-icon-button";
 @import "@material/elevation/mdc-elevation";
 @import "./menu.scss";
- 
-// ----- main styles ----- 
+
+// ----- main styles -----
 
 // .mdc-ripple-upgraded--background-focused {
 // 	visibility: hidden;
@@ -49,7 +49,8 @@ a {
 	-webkit-touch-callout: none;
 }
 
-button, .mdc-button {
+button,
+.mdc-button {
 	-webkit-appearance: none;
 	appearance: none;
 	outline: none;
@@ -63,7 +64,7 @@ button {
 
 .subline {
 	font-size: 16px;
-	color: rgba(0,0,0,0.6);
+	color: rgba(0, 0, 0, 0.6);
 }
 
 @-webkit-keyframes autofill {

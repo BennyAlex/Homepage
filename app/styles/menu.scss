@@ -29,47 +29,62 @@ main {
 	transform: translateX(0);
 }
 
-#sidebar a {
+#sidebar .mdc-button {
 	text-align: center;
 	opacity: 0;
 	width: $sidebar-width;
-	color: #fff;
+	color: rgba(255, 255, 255, 0.85);
 	text-decoration: none;
-	font-size: 18px;
-	font-weight: 600;
+	font-size: 17px;
+	font-weight: 500;
 	width: $sidebar-width;
-	padding: 22px 0;
 	display: block;
+	padding: 0 14px;
+	height: 54px;
+	line-height: 54x;
+	text-decoration: none;
+	border-radius: 0;
 }
 
-#sidebar a.github-sidebar {
-	bottom: 63px;
-	font-size: 14px;
+#sidebar .github-sidebar {
+	bottom: 64px;
+}
+
+#sidebar .github-sidebar .mdc-button {
+	font-size: 12px;
 	font-weight: 400;
 }
 
 // Setting delays for the nav items in open transition
 @for $i from 0 through $items {
-	#sidebar.open a:nth-child(#{$i}) {
+	#sidebar.open .mdc-button:nth-child(#{$i}) {
 		$delay: (($items + 1) - $i) * 0.14s;
 		transition: background-color 0.3s ease-in-out, opacity 0.66s ease $delay;
 	}
 }
 
-#sidebar.open a {
+#sidebar.open .mdc-button {
 	opacity: 1;
 }
 
-#sidebar a.router-link-exact-active {
+#sidebar .mdc-button.active-route {
 	background-color: rgba(0, 0, 0, 0.3);
 }
 
-body:not(.disable-hover) #sidebar a:hover {
+body:not(.disable-hover) #sidebar .mdc-button:hover {
 	background-color: rgba(0, 0, 0, 0.7);
 }
 
 .move-to-left {
 	transform: translateX(-$sidebar-width);
+}
+
+#menu-icon-button {
+	width: 48px;
+	height: 48px;
+	padding: 5px;
+	margin-right: 8px;
+	display: none;
 }
 
 #menu-button {
@@ -78,9 +93,8 @@ body:not(.disable-hover) #sidebar a:hover {
 	height: 38px;
 	cursor: pointer;
 	transition: all 0.5s ease-in-out;
-	display: none;
-	z-index: 99 !important;
-	margin: 0 17px;
+	z-index: 5 !important;
+	margin: 0;
 }
 
 #menu-button .ani {
@@ -129,7 +143,7 @@ body:not(.disable-hover) #sidebar a:hover {
 }
 
 @media only screen and (max-width: 790px) {
-	#menu-button {
+	#menu-icon-button {
 		display: block;
 	}
 }
