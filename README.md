@@ -21,6 +21,12 @@ To-Do's
         Dark Theme
     </li>
     <li>
+        English language support
+    </li>
+    <li>
+        80's Theme
+    </li>
+    <li>
         Contact Form
     </li>
 </ul>

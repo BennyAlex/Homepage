@@ -2,15 +2,17 @@
 
 <template>
 	<div id="app-container">
-		<main id="main" ref="main">
-			<transition
-				name="fade"
-				mode="out-in"
-				:duration="{ enter: 250, leave: 250 }"
-				appear="appear"
-			>
-				<router-view></router-view>
-			</transition>
+		<main id="main" ref="main" class="column align-center justify-center">
+			<div class="router-view">
+				<transition
+					name="fade"
+					mode="out-in"
+					:duration="{ enter: 250, leave: 250 }"
+					appear="appear"
+				>
+					<router-view></router-view>
+				</transition>
+			</div>
 
 			<a
 				href="https://github.com/BennyAlex/Resuemee"
@@ -178,13 +180,13 @@ export default {
 #app-container
 	height 100vh
 	width 100vw
-	height 100%
 
 #main
-	display flex
-	align-items center
-	justify-content center
 	padding-top 65px
+	position relative
+
+main .router-view
+	margin-top -6px
 
 /* navigation styles */
 #navbar-top
@@ -228,7 +230,7 @@ body.disable-hover #navbar-top .mdc-button:hover, body.disable-hover #navbar-top
 .github
 	position absolute
 	color rgba(255, 255, 255, 0.8)
-	bottom 11px
+	bottom 12px
 	left 50%
 	transform translate(-50%, 0)
 	text-decoration none
@@ -246,8 +248,10 @@ body.disable-hover #navbar-top .mdc-button:hover, body.disable-hover #navbar-top
 	#app-container
 		height auto
 
-@media only screen and (max-height 678px)
+	main .router-view
+		margin-top 0
 
+@media only screen and (max-height 678px)
 	.github:not(.github-sidebar)
 		display none
 </style>

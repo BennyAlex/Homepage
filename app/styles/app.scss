@@ -11,12 +11,6 @@ $mdc-theme-secondary: #000;
 @import "./menu.scss";
 
 // ----- main styles -----
-
-// .mdc-ripple-upgraded--background-focused {
-// 	visibility: hidden;
-// 	opacity: 0;
-// }
-
 *,
 *:before,
 *:after {
@@ -42,6 +36,32 @@ body {
 	background-position: top;
 }
 
+.row {
+	display: flex;
+	flex-direction: row;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+}
+
+.align-stretch {
+	align-items: stretch;
+}
+
+.align-center {
+	align-items: center;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.grow {
+	flex-grow: 1;
+}
+
 .no-select,
 button,
 a {
@@ -62,9 +82,14 @@ button {
 	cursor: pointer;
 }
 
+.mdc-button-round,
+.mdc-button-round .mdc-button__ripple {
+	border-radius: 20px;
+}
+
 .subline {
 	font-size: 16px;
-	color: rgba(0, 0, 0, 0.6);
+	color: rgba(0, 0, 0, 0.7);
 }
 
 @-webkit-keyframes autofill {

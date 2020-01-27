@@ -51,11 +51,13 @@ export default {
 	width 750px
 	height 520px
 	border-radius 8px
-	background-color rgba(255, 255, 255, 0.25)
+	background rgba(255, 255, 255, 0.25)
 	backdrop-filter blur(5px)
 	font-size 19px
-	color rgba(0, 0, 0, 0.7)
+	color rgba(0, 0, 0, 0.75)
 	padding 13px
+	display flex
+	flex-direction column
 
 .title-bar
 	display flex
@@ -79,6 +81,8 @@ export default {
 	width 100%
 
 .card-content
+	width 100%
+	height 100%
 	padding 13px
 
 // media queries for mobile

@@ -1,84 +1,47 @@
 <template>
-	<div ref="lightbox">
-		<transition name="lightbox-fade">
+	<div ref="imageGallery">
+		<transition name="image-gallery-fade">
 			<div
-				class="lightbox"
+				class="image-gallery no-select"
 				v-if="visible"
 				@mousedown.stop="hide"
 				@touchdown.stop="hide"
 			>
-				<div
-					class="lightbox-close"
+				<icon-button
+					class="image-gallery-close"
 					@mousedown.stop="hide"
 					@touchdown.stop="hide"
 				>
-					&times;
-				</div>
+					close
+				</icon-button>
+
 				<div
-					class="lightbox-arrow lightbox-arrow-left"
+					class="image-gallery-arrow image-gallery-arrow-left"
+					v-show="has_prev() && controlsVisible"
 					@mousedown.stop.prevent="prev"
 					@touchdown.stop.prevent="prev"
 				>
-					<transition name="lightbox-fade">
-						<div
-							class="lightbox-arrow-left-icon"
-							v-show="has_prev() && controlsVisible"
-						>
-							<svg
-								height="24"
-								viewBox="0 0 24 24"
-								width="24"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<circle
-									cx="12"
-									cy="12"
-									r="12"
-									fill="rgba(20, 20, 20, 0.4)"
-								/>
-								<path
-									d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
-									fill="white"
-								/>
-								<path d="M0-.5h24v24H0z" fill="none" />
-							</svg>
-						</div>
+					<transition name="image-gallery-fade">
+						<icon-button>
+							chevron_left
+						</icon-button>
 					</transition>
 				</div>
 				<div
-					class="lightbox-arrow lightbox-arrow-right"
+					class="image-gallery-arrow image-gallery-arrow-right"
 					@mousedown.stop.prevent="next"
 					@touchdown.stop.prevent="next"
+					v-show="has_next() && controlsVisible"
 				>
-					<transition name="lightbox-fade">
-						<div
-							class="lightbox-arrow-right-icon"
-							v-show="has_next() && controlsVisible"
-						>
-							<svg
-								height="24"
-								viewBox="0 0 24 24"
-								width="24"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<circle
-									cx="12"
-									cy="12"
-									r="12"
-									fill="rgba(20, 20, 20, 0.4)"
-								/>
-								<path
-									d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
-									fill="white"
-								/>
-								<path d="M0-.25h24v24H0z" fill="none" />
-							</svg>
-						</div>
+					<transition name="image-gallery-fade">
+						<icon-button>
+							chevron_right
+						</icon-button>
 					</transition>
 				</div>
-				<transition name="lightbox-fade">
+				<transition name="image-gallery-fade">
 					<div
-						class="lightbox-caption"
+						class="image-gallery-caption"
 						v-show="controlsVisible && images[index].alt"
 						@mousedown.stop
 						@touchdown.stop
@@ -87,18 +50,18 @@
 					</div>
 				</transition>
 				<div
-					class="lightbox-main"
+					class="image-gallery-main"
 					@mousedown.stop="hide"
 					@touchdown.stop="hide"
 				>
 					<div
-						class="lightbox-image-container"
+						class="image-gallery-image-container"
 						@mousedown.stop
 						@touchdown.stop
 					>
 						<transition :name="slideTransitionName" mode="out-in">
 							<div
-								class="lightbox-image"
+								class="image-gallery-image"
 								:key="index"
 								:style="{
 									backgroundImage:
@@ -117,8 +80,11 @@
 </template>
 
 <script>
+import IconButton from "./IconButton.vue";
+
 export default {
 	name: "ImageGallery",
+	components: { IconButton },
 	props: {
 		// images = [{ name:'image1.jpg', alt:'Redwoods'}, ...]
 		images: {
@@ -133,18 +99,18 @@ export default {
 	},
 	data() {
 		return {
-			timeoutDuration: 2000,
-			visible: false, // Lightbox not visible by default
-			controlsVisible: true, // Lightbox controls (arrows, caption, close button)
+			timeoutDuration: 3300,
+			visible: false, // image-gallery not visible by default
+			controlsVisible: true, // image-gallery controls (arrows, caption, close button)
 			index: 0, // Index indicates which photo to display. Default to 1st photo
-			timer: null, // Timer to show/hide lightbox controls
-			slideTransitionName: "lightbox-slide-next" //Controls animation's transition direction (next or prev)
+			timer: null, // Timer to show/hide image-gallery controls
+			slideTransitionName: "image-gallery-slide-next" //Controls animation's transition direction (next or prev)
 		};
 	},
 	mounted() {
 		document
 			.getElementById("app-container")
-			.appendChild(this.$refs.lightbox);
+			.appendChild(this.$refs.imageGallery);
 
 		window.addEventListener("keydown", this.keyEventListener);
 		window.addEventListener("mousemove", this.mouseEventListener);
@@ -163,7 +129,7 @@ export default {
 			this.controlsVisible = true;
 			var that = this;
 
-			// Find the index of the image passed to Lightbox
+			// Find the index of the image passed to image-gallery
 			for (var i = 0; i < this.images.length; i++) {
 				if (this.images[i].name == imageName) {
 					this.index = i;
@@ -189,13 +155,13 @@ export default {
 		},
 		prev() {
 			if (this.has_prev()) {
-				this.slideTransitionName = "lightbox-slide-prev";
+				this.slideTransitionName = "image-gallery-slide-prev";
 				this.index -= 1;
 			}
 		},
 		next() {
 			if (this.has_next()) {
-				this.slideTransitionName = "lightbox-slide-next";
+				this.slideTransitionName = "image-gallery-slide-next";
 				this.index += 1;
 				this.preloadNextImage();
 			}
@@ -227,7 +193,7 @@ export default {
 				}
 			}
 		},
-		// This event shows the arrows and caption on the lightbox when the mouse is moved or clicked.
+		// This event shows the arrows and caption on the image-gallery when the mouse is moved or clicked.
 		// Also used for touch events on touchscreen devices. The elements are set to disappear
 		// after a given duration via a timer.
 		mouseEventListener(e) {
@@ -254,78 +220,71 @@ export default {
 </script>
 
 <style scoped>
-.lightbox {
+.image-gallery {
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: rgba(0, 0, 0, 0.7);
+	background: rgba(0, 0, 0, 0.8);
 	width: 100%;
 	height: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	z-index: 99 !important;
-	color: rgba(255, 255, 255, 0.8);
+	color: rgba(255, 255, 255, 0.85);
 }
 
-.lightbox-close {
+.image-gallery .mdc-icon-button {
+	font-size: 48px;
+	width: 50px;
+	height: 50px;
+	padding: 0;
+}
+
+.image-gallery .image-gallery-close {
+	font-size: 34px;
+}
+
+.image-gallery-close {
 	position: fixed;
-	z-index: 210;
+	z-index: 105;
 	right: 0;
 	top: 0;
-	padding: 1rem;
-	font-size: 1.7rem;
-	cursor: pointer;
-	width: 4rem;
-	height: 4rem;
-	color: white;
+	margin: 8px;
 }
 
-.lightbox-main {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
+.image-gallery-main {
 	display: flex;
 	width: 100%;
 	height: 100%;
 }
 
-.lightbox-arrow {
-	padding: 0 2rem;
+.image-gallery-arrow {
 	cursor: pointer;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	padding: 0 2rem;
+	padding: 0 8px;
 	height: 100%;
-	width: 2rem;
+	width: auto;
 	z-index: 100;
 }
 
-.lightbox-arrow-right {
+.image-gallery-arrow-right {
 	right: 0;
 }
 
-.lightbox-arrow-left {
+.image-gallery-arrow-left {
 	left: 0;
 }
 
-.lightbox-image-container {
-	-webkit-box-flex: 1;
+.image-gallery-image-container {
 	width: 20%;
-	-webkit-flex: 1;
-	-ms-flex: 1;
 	flex: 1;
 }
 
-.lightbox-image {
+.image-gallery-image {
 	width: 100%;
 	height: 100%;
 	background-size: contain;
@@ -333,67 +292,62 @@ export default {
 	background-position: 50% 50%;
 }
 
-.lightbox-caption {
+.image-gallery-caption {
 	position: absolute;
 	bottom: 15px;
 	width: 100%;
 	z-index: 100;
 	text-align: center;
-	text-shadow: 1px 1px 3px rgb(26, 26, 26);
 }
 
-.lightbox-caption span {
+.image-gallery-caption span {
 	border-radius: 12px;
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(0, 0, 0, 0.9);
 	padding: 2px 10px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
 }
 
-.lightbox-slide-next-enter-active,
-.lightbox-slide-next-leave-active,
-.lightbox-slide-prev-enter-active,
-.lightbox-slide-prev-leave-active {
+.image-gallery-slide-next-enter-active,
+.image-gallery-slide-next-leave-active,
+.image-gallery-slide-prev-enter-active,
+.image-gallery-slide-prev-leave-active {
 	transition: all 0.4s ease-in-out;
 }
 
-.lightbox-slide-next-enter {
+.image-gallery-slide-next-enter {
 	-webkit-transform: translateX(100px);
 	-ms-transform: translateX(100px);
 	transform: translateX(100px);
 	opacity: 0;
 }
 
-.lightbox-slide-next-leave-to {
+.image-gallery-slide-next-leave-to {
 	-webkit-transform: translateX(-100px);
 	-ms-transform: translateX(-100px);
 	transform: translateX(-100px);
 	opacity: 0;
 }
 
-.lightbox-slide-prev-enter {
+.image-gallery-slide-prev-enter {
 	-webkit-transform: translateX(-100px);
 	-ms-transform: translateX(-100px);
 	transform: translateX(-100px);
 	opacity: 0;
 }
 
-.lightbox-slide-prev-leave-to {
+.image-gallery-slide-prev-leave-to {
 	-webkit-transform: translateX(100px);
 	-ms-transform: translateX(100px);
 	transform: translateX(100px);
 	opacity: 0;
 }
 
-.lightbox-fade-enter-active,
-.lightbox-fade-leave-active {
+.image-gallery-fade-enter-active,
+.image-gallery-fade-leave-active {
 	transition: all 0.5s ease-in-out;
 }
 
-.lightbox-fade-enter,
-.lightbox-fade-leave-to {
+.image-gallery-fade-enter,
+.image-gallery-fade-leave-to {
 	opacity: 0;
 }
 </style>

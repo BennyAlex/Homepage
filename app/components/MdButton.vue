@@ -1,12 +1,12 @@
 /** * IconButton */
 
 <template>
-	<button class="mdc-button no-select" ref="button">
+	<a class="mdc-button no-select" ref="button" :href=href target="_blank">
 		<div class="mdc-button__ripple"></div>
 		<span class="mdc-button__label">
 			<slot></slot>
 		</span>
-	</button>
+	</a>
 </template>
 
 <script>
@@ -15,7 +15,7 @@ import { MDCRipple } from "@material/ripple";
 export default {
 	name: "MdButton",
 	props: {
-		to: {
+		href: {
 			type: String,
 			required: false
 		}

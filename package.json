@@ -13,8 +13,8 @@
 		"url": "https://github.com/BennyAlex/Resuemee.git"
 	},
 	"scripts": {
-		"dev": "rm -rf dist && parcel app/index.html -d dist --no-cache",
-		"build": "rm -rf docs && parcel build app/index.html -d docs --no-cache --no-source-maps --detailed-report 20 --public-url ./",
+		"dev": "rm -rf dist && parcel app/index.html -d dist --no-cache --open",
+		"build": "rm -rf docs && parcel build app/index.html -d docs --no-cache --no-source-maps --log-level 3 --public-url ./ --experimental-scope-hoisting",
 		"clean": "rm -rf docs .parcel dist"
 	},
 	"devDependencies": {
@@ -24,7 +24,6 @@
 		"autoprefixer": "^9.7.4",
 		"cssnano": "~4.1.7",
 		"parcel": "^1.12.4",
-		"pug": "~2.0.4",
 		"sass": "^1.25.0",
 		"stylus": "~0.54.7",
 		"vue-hot-reload-api": "~2.3.4",
@@ -36,6 +35,7 @@
 		"@material/elevation": "^4.0.0",
 		"@material/icon-button": "^4.0.0",
 		"@material/ripple": "^4.0.0",
+		"leaflet": "^1.6.0",
 		"normalize": "^0.3.1",
 		"normalize.css": "^8.0.1",
 		"vue": "~2.6.10",
