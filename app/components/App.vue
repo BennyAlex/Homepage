@@ -3,7 +3,7 @@
 <template>
 	<div id="app-container">
 		<main id="main" ref="main" class="column align-center justify-center">
-			<div class="router-view">
+			<div id="router-view">
 				<transition
 					name="fade"
 					mode="out-in"
@@ -235,23 +235,40 @@ body.disable-hover #navbar-top .mdc-button:hover, body.disable-hover #navbar-top
 	transform translate(-50%, 0)
 	text-decoration none
 
+#router-view
+	padding 20px
+	width 750px
+	height 520px
+
 
 @media only screen and (max-width 790px)
 	#navbar-top .mdc-button:not(#app-title)
 		display none
 
+	#router-view
+		width 100%
+
 @media only screen and (max-width 470px)
 	.github:not(.github-sidebar)
 		display none
+
+	#router-view
+		margin-top 0
+
+	#router-view
+		padding 13px
 
 @media only screen and (max-height 628px)
 	#app-container
 		height auto
 
-	main .router-view
+	#router-view
 		margin-top 0
 
 @media only screen and (max-height 678px)
 	.github:not(.github-sidebar)
 		display none
+
+	#router-view
+		margin-top 0
 </style>

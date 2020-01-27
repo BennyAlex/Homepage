@@ -47,9 +47,8 @@ export default {
 
 <style scoped lang="stylus">
 .glass-card
-	margin 20px
-	width 750px
-	height 520px
+	width 100%
+	height 100%
 	border-radius 8px
 	background rgba(255, 255, 255, 0.25)
 	backdrop-filter blur(5px)
@@ -84,14 +83,4 @@ export default {
 	width 100%
 	height 100%
 	padding 13px
-
-// media queries for mobile
-@media only screen and (max-width 790px)
-	.glass-card
-		width 100%
-
-
-@media only screen and (max-width 500px)
-	.glass-card
-		margin 14px
 </style>
