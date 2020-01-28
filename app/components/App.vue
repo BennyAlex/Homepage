@@ -28,9 +28,9 @@
 				Benjamin Franz
 			</md-button>
 
-			<md-button @click.native="transitionTo($event, '/')">
+			<!-- <md-button @click.native="transitionTo($event, '/')">
 				Lebenslauf
-			</md-button>
+			</md-button> -->
 
 			<md-button @click.native="transitionTo($event, '/kontakt')">
 				Kontakt
@@ -48,9 +48,9 @@
 		</div>
 
 		<div id="sidebar" ref="sidebar" class="mdc-elevation--z1">
-			<md-button @click.native="transitionTo($event, '/')">
+			<!-- <md-button @click.native="transitionTo($event, '/')">
 				Lebenslauf
-			</md-button>
+			</md-button> -->
 
 			<md-button @click.native="transitionTo($event, '/kontakt')">
 				Kontakt
@@ -178,8 +178,8 @@ export default {
 
 <style lang="stylus">
 #app-container
-	height 100vh
-	width 100vw
+	height 100%
+	width 100%
 
 #main
 	padding-top 65px
@@ -241,7 +241,7 @@ body.disable-hover #navbar-top .mdc-button:hover, body.disable-hover #navbar-top
 	height 520px
 
 
-@media only screen and (max-width 790px)
+@media only screen and (max-width 788px)
 	#navbar-top .mdc-button:not(#app-title)
 		display none
 

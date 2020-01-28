@@ -4,8 +4,8 @@
 	<glass-card title="Projekte" showBackButton>
 		2 Projekte, die ich während meiner Ausbildung programmiert habe:
 		<br /><br />
-		<div class="project row">
-			<div style="width: 82%" class="column">
+		<div class="project row column-sm wrap">
+			<div style="width: 82%" class="column width-100-sm">
 				<div>
 					<b>Material Design Inspired Color Picker</b>
 					<div class="subline">
@@ -28,7 +28,11 @@
 					</md-button>
 				</div>
 			</div>
-			<img src="../images/md-color-picker.png" style="width: 18%" />
+			<img
+				src="../images/md-color-picker.png"
+				style="width: 18%"
+				class="width-100-sm"
+			/>
 		</div>
 		<br />
 		<div class="project mfc">
@@ -97,7 +101,17 @@ export default {
 	cursor: pointer;
 }
 
-.mdc-button {
-	margin: 0 10px;
+.project .mdc-button {
+	margin: 18px 10px;
+}
+
+@media only screen and (max-width: 788px) {
+	.project .mdc-button {
+		margin: 18px 0;
+	}
+
+	.project .mdc-button:first-child {
+		margin-right: 12px;
+	}
 }
 </style>

@@ -41,7 +41,7 @@
 				</div>
 				<transition name="image-gallery-fade">
 					<div
-						class="image-gallery-caption"
+						class="image-gallery-caption mdc-elevation--z12"
 						v-show="controlsVisible && images[index].alt"
 						@mousedown.stop
 						@touchdown.stop
