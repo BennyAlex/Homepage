@@ -1,8 +1,8 @@
 /** * GlassCard */
 
 <template>
-	<div class="glass-card mdc-elevation--z10">
-		<div class="title-bar no-select">
+	<div class="glass-card column mdc-elevation--z10">
+		<div class="title-bar row align-center no-select">
 			<div class="icon" v-if="showBackButton">
 				<icon-button @click.native="goBack">
 					arrow_back
@@ -12,10 +12,27 @@
 				{{ title }}
 			</div>
 		</div>
-
-		<div class="card-content">
-			<slot></slot>
+		<div class="card-content os-host-flexbox">
+			<overlay-scrollbars
+				:options="{
+					className: 'os-theme-dark width-100 height-100 card-scrollbar'
+				}"
+			>
+				<slot></slot>
+			</overlay-scrollbars>
 		</div>
+
+		<!-- <div class="card-content os-host-flexbox">
+			<overlay-scrollbars
+				:options="{
+					className: 'os-theme-dark width-100 card-scrollbar'
+				}"
+			>
+				
+			</overlay-scrollbars> -->
+		<!-- <div class="card-content os-host-flexbox">
+			<slot></slot>
+		</div> -->
 	</div>
 </template>
 
@@ -55,12 +72,8 @@ export default {
 	font-size 19px
 	color rgba(0, 0, 0, 0.75)
 	padding 13px
-	display flex
-	flex-direction column
 
 .title-bar
-	display flex
-	align-items center
 	margin-bottom 10px
 
 .icon
@@ -83,4 +96,5 @@ export default {
 	width 100%
 	height 100%
 	padding 13px
+	position relative
 </style>

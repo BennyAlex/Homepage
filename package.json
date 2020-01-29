@@ -24,7 +24,7 @@
 		"autoprefixer": "^9.7.4",
 		"cssnano": "~4.1.7",
 		"parcel": "^1.12.4",
-		"rimraf": "^3.0.0",
+		"rimraf": "^3.0.1",
 		"sass": "^1.25.0",
 		"stylus": "~0.54.7",
 		"vue-hot-reload-api": "~2.3.4",
@@ -36,8 +36,11 @@
 		"@material/elevation": "^4.0.0",
 		"@material/icon-button": "^4.0.0",
 		"@material/ripple": "^4.0.0",
+		"leaflet": "^1.6.0",
 		"normalize": "^0.3.1",
 		"normalize.css": "^8.0.1",
+		"overlayscrollbars": "^1.10.2",
+		"overlayscrollbars-vue": "^0.2.1",
 		"vue": "~2.6.10",
 		"vue-router": "~3.1.3"
 	}

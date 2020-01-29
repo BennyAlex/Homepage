@@ -4,7 +4,9 @@ $mdc-theme-primary: #000;
 $mdc-theme-secondary: #000;
 
 @charset "utf-8";
+// @import "leaflet/dist/leaflet.css";
 @import "normalize.css/normalize.css";
+@import "overlayscrollbars/css/OverlayScrollbars.css";
 @import "@material/button/mdc-button";
 @import "@material/icon-button/mdc-icon-button";
 @import "@material/elevation/mdc-elevation";
@@ -26,6 +28,7 @@ html,
 body,
 #app {
 	height: 100%;
+	overflow: hidden;
 }
 
 #app {
@@ -76,6 +79,10 @@ body {
 
 .justify-center {
 	justify-content: center;
+}
+
+.justify-space-between {
+	justify-content: space-between;
 }
 
 .grow {
@@ -130,6 +137,13 @@ button {
 .subline {
 	font-size: 16px;
 	color: rgba(0, 0, 0, 0.7);
+}
+
+.card-scrollbar .os-scrollbar-vertical {
+	position: fixed !important;
+	top: 72px !important;
+	bottom: 24px !important;
+	right: 8px !important;
 }
 
 @-webkit-keyframes autofill {
@@ -224,5 +238,9 @@ noscript p {
 
 	.justify-center-sm {
 		justify-content: center !important;
+	}
+
+	.justify-space-between-sm {
+		justify-content: space-between !important;
 	}
 }

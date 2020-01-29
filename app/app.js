@@ -6,6 +6,10 @@ import Vue from "vue";
 
 import App from "./components/App.vue";
 
+import { OverlayScrollbarsPlugin } from "overlayscrollbars-vue";
+
+Vue.use(OverlayScrollbarsPlugin);
+
 // Vue setup
 if (process.env.NODE_ENV == "production") {
 	Vue.config.silent = true;

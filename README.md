@@ -18,6 +18,9 @@ To-Do's
 
 <ul>
     <li>
+        Footer (includes github and language & theme switcher)
+    </li>
+    <li>
         Dark Theme
     </li>
     <li>

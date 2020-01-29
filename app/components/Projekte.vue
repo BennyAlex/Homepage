@@ -34,9 +34,8 @@
 				class="width-100-sm"
 			/>
 		</div>
-		<br />
 		<div class="project mfc">
-			<h3>Mainfrankencard Admintool</h3>
+			<b>Mainfrankencard Admintool</b>
 			<div class="subline"></div>
 
 			<div class="preview-images">
@@ -83,8 +82,12 @@ export default {
 </script>
 
 <style scoped>
+.project {
+	padding: 0 8px;
+}
+
 .preview-images {
-	padding: 8px;
+	padding-top: 8px;
 	display: flex;
 	align-items: center;
 }
@@ -92,6 +95,7 @@ export default {
 .preview-images div {
 	width: 33%;
 	padding: 8px;
+	padding-bottom: 0;
 }
 
 .preview-images img {
@@ -103,6 +107,10 @@ export default {
 
 .project .mdc-button {
 	margin: 18px 10px;
+}
+
+.project.mfc {
+	margin-top: 16px;
 }
 
 @media only screen and (max-width: 788px) {

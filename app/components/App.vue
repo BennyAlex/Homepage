@@ -177,16 +177,13 @@ export default {
 </script>
 
 <style lang="stylus">
-#app-container
+#app-container, main
 	height 100%
 	width 100%
 
 #main
 	padding-top 65px
 	position relative
-
-main .router-view
-	margin-top -6px
 
 /* navigation styles */
 #navbar-top
@@ -236,17 +233,24 @@ body.disable-hover #navbar-top .mdc-button:hover, body.disable-hover #navbar-top
 	text-decoration none
 
 #router-view
+	margin-top -8px // 3/4 of github bottom
 	padding 20px
 	width 750px
-	height 520px
+	height 540px
 
 
 @media only screen and (max-width 788px)
+	.github:not(.github-sidebar)
+		display none
+
 	#navbar-top .mdc-button:not(#app-title)
 		display none
 
 	#router-view
 		width 100%
+		margin-top 0
+		padding-top 30px
+		height 100%
 
 @media only screen and (max-width 470px)
 	.github:not(.github-sidebar)
@@ -254,16 +258,9 @@ body.disable-hover #navbar-top .mdc-button:hover, body.disable-hover #navbar-top
 
 	#router-view
 		margin-top 0
-
-	#router-view
-		padding 13px
-
-@media only screen and (max-height 628px)
-	#app-container
-		height auto
-
-	#router-view
-		margin-top 0
+		padding 14px
+		padding-top 21px
+		height 100%
 
 @media only screen and (max-height 678px)
 	.github:not(.github-sidebar)
@@ -271,4 +268,6 @@ body.disable-hover #navbar-top .mdc-button:hover, body.disable-hover #navbar-top
 
 	#router-view
 		margin-top 0
+		padding-top 30px
+		height 100%
 </style>

@@ -2,13 +2,13 @@
 
 <template>
 	<glass-card title="Kontakt" showBackButton>
-		<div class="row">
-			<div style="width: 50%">
+		<div class="row column-sm justify-space-between-sm height-100-sm">
+			<div class="width-50 width-100-sm height-50-sm" ref="contact">
 				Adresse
 				<div class="subline">Junior Fullstack Entwickler</div>
 			</div>
 
-			<div style="width: 50%;">
+			<div class="width-50 width-100-sm height-50-sm">
 				<div id="map" :style="{ height: mapHeight }"></div>
 			</div>
 		</div>
@@ -17,16 +17,17 @@
 
 <script>
 import GlassCard from "./GlassCard.vue";
+import leaflet from "leaflet";
 
 export default {
 	name: "Kontakt",
 	components: { GlassCard },
 	data: () => ({
-		mapHeight: '300px'
+		mapHeight: ""
 	}),
 	mounted() {
-		const el = document.querySelector(".glass-card .card-content");
-		this.mapHeight = el.clientHeight - 26 + "px";
+		window.addEventListener("resize", this.resizeMap);
+		this.resizeMap();
 
 		this.$nextTick(() => {
 			const lng = 9.87759;
@@ -46,17 +47,34 @@ export default {
 				}
 			).addTo(mymap);
 
-			L.marker(latlng)
+			const marker = L.marker(latlng, {
+				keyboard: false,
+				title: "Benjamin Franz",
+				alt: "Benjamin Franz"
+			})
 				.addTo(mymap)
 				.bindPopup("Benjamin Franz", {
 					closeButton: false,
 					autoClose: false,
-					closeOnClick: false
+					closeOnClick: false,
+					closeOnEscapeKey: false
 				})
 				.openPopup();
 		});
+	},
+	beforeDestroy() {
+		window.removeEventListener("resize", this.resizeMap);
+	},
+	methods: {
+		resizeMap() {
+			this.mapHeight = window.getComputedStyle(this.$refs.contact).height;
+		}
 	}
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#map {
+	min-height: 250px !important;
+}
+</style>
