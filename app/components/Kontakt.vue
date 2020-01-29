@@ -2,8 +2,8 @@
 
 <template>
 	<glass-card title="Kontakt" showBackButton>
-		<div class="row column-sm justify-space-between-sm height-100-sm">
-			<div class="width-50 width-100-sm height-50-sm" ref="contact">
+		<div class="row column-sm justify-space-between-sm height-100">
+			<div class="width-50 width-100-sm height-100 height-50-sm" ref="contact">
 				Adresse
 				<div class="subline">Junior Fullstack Entwickler</div>
 			</div>
@@ -17,7 +17,7 @@
 
 <script>
 import GlassCard from "./GlassCard.vue";
-import L from "leaflet";
+import L, { map, tileLayer, marker } from "leaflet";
 import icon from "../images/marker.svg";
 
 export default {
@@ -30,14 +30,17 @@ export default {
 		window.addEventListener("resize", this.resizeMap);
 		this.resizeMap();
 
+		// fix L not defined
+		window.L = window.L || L;
+
 		this.$nextTick(() => {
 			const lng = 9.87759;
 			const lat = 49.78168;
 			const latlng = L.latLng(lat, lng);
 
-			var mymap = L.map("map").setView(latlng, 18);
+			var mymap = map("map").setView(latlng, 18);
 
-			L.tileLayer(
+			tileLayer(
 				"https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
 				{
 					attribution: "",
@@ -48,7 +51,7 @@ export default {
 				}
 			).addTo(mymap);
 
-			L.marker(latlng, {
+			marker(latlng, {
 				icon: L.icon({
 					iconUrl: icon,
 					iconSize: [42, 42],
