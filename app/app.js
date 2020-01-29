@@ -36,8 +36,6 @@ let init = () => {
 				);
 				window.addEventListener("touchstart", this.disableHover, true);
 				window.addEventListener("mousemove", this.enableHover, true);
-				this.isSmallScreen();
-				window.addEventListener("resize", this.isSmallScreen);
 				window.addEventListener(
 					"mousedown",
 					this.removeRippleAfterClick,
@@ -69,14 +67,6 @@ let init = () => {
 			});
 		},
 		methods: {
-			isSmallScreen() {
-				const documentWidth =
-					document.body.clientWidth ||
-					document.documentElement.clientWidth ||
-					window.innerWidth;
-
-				window.isSmallScreen = documentWidth <= 790;
-			},
 			removeRippleAfterClick() {
 				const ripples = document.querySelectorAll(
 					".mdc-ripple-upgraded--background-focused"

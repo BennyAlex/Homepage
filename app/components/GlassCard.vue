@@ -21,18 +21,6 @@
 				<slot></slot>
 			</overlay-scrollbars>
 		</div>
-
-		<!-- <div class="card-content os-host-flexbox">
-			<overlay-scrollbars
-				:options="{
-					className: 'os-theme-dark width-100 card-scrollbar'
-				}"
-			>
-				
-			</overlay-scrollbars> -->
-		<!-- <div class="card-content os-host-flexbox">
-			<slot></slot>
-		</div> -->
 	</div>
 </template>
 

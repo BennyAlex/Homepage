@@ -17,7 +17,8 @@
 
 <script>
 import GlassCard from "./GlassCard.vue";
-import leaflet from "leaflet";
+import L from "leaflet";
+import icon from "../images/marker.svg";
 
 export default {
 	name: "Kontakt",
@@ -47,7 +48,12 @@ export default {
 				}
 			).addTo(mymap);
 
-			const marker = L.marker(latlng, {
+			L.marker(latlng, {
+				icon: L.icon({
+					iconUrl: icon,
+					iconSize: [42, 42],
+					popupAnchor: [0, -22]
+				}),
 				keyboard: false,
 				title: "Benjamin Franz",
 				alt: "Benjamin Franz"
