@@ -59,6 +59,10 @@ body {
 	background-color: #333333;
 }
 
+.center {
+	text-align: center;
+}
+
 .row {
 	display: flex;
 	flex-direction: row;
@@ -83,6 +87,14 @@ body {
 
 .justify-space-between {
 	justify-content: space-between;
+}
+
+.justify-space-around {
+	justify-content: space-around;
+}
+
+.justify-stretch {
+	justify-content: stretch;
 }
 
 .grow {
@@ -146,6 +158,10 @@ button {
 	right: 8px !important;
 }
 
+.card-scrollbar .os-content {
+	padding-top: 13px !important;
+}
+
 inputfocus,
 selectfocus,
 textareafocus,
@@ -177,7 +193,7 @@ noscript p {
 }
 
 // sm for small screens
-@media only screen and (max-width: 788px) {
+@media only screen and (max-width: 764px) {
 	.width-50-sm {
 		width: 50% !important;
 	}

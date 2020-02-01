@@ -4,8 +4,8 @@
 	<glass-card title="Projekte" showBackButton>
 		2 Projekte, die ich während meiner Ausbildung programmiert habe:
 		<br /><br />
-		<div class="project row column-sm wrap">
-			<div style="width: 82%" class="column width-100-sm">
+		<div class="project row column-sm align-center-sm">
+			<div style="width: 80%" class="column width-100-sm">
 				<div>
 					<b>Material Design Inspired Color Picker</b>
 					<div class="subline">
@@ -30,13 +30,13 @@
 			</div>
 			<img
 				src="../images/md-color-picker.png"
-				style="width: 18%"
-				class="width-100-sm"
+				style="width: 20%"
+				class="width-50-sm"
 			/>
 		</div>
 		<div class="project mfc">
-			<b>Mainfrankencard Admintool</b>
-			<div class="subline"></div>
+			<b>Mainfrankencard-Datenbank</b>
+			<div class="subline">Mein Abschlussprojekt. Internes Tool zum Verwalten von Mainfrankencard Partnern und Angeboten</div>
 
 			<div class="preview-images">
 				<div v-for="img in images" :key="img.id">
@@ -59,7 +59,7 @@ import GlassCard from "./GlassCard.vue";
 import ImageGallery from "./ImageGallery.vue";
 import MdButton from "./MdButton.vue";
 
-const images = require("../images/mfc/*.jpg");
+const images = require("../images/mfc/*.png");
 
 let id = 0;
 const imageList = Object.keys(images).map(key => {
@@ -110,7 +110,7 @@ export default {
 }
 
 .project.mfc {
-	margin-top: 16px;
+	margin-top: 18px;
 }
 
 @media only screen and (max-width: 788px) {

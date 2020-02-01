@@ -234,12 +234,12 @@ body.disable-hover #navbar-top .mdc-button:hover, body.disable-hover #navbar-top
 
 #router-view
 	margin-top -8px // 3/4 of github bottom
-	padding 20px
-	width 750px
-	height 540px
+	padding 14px
+	width 760px
+	height 546px
 
 
-@media only screen and (max-width 788px)
+@media only screen and (max-width 764px)
 	.github:not(.github-sidebar)
 		display none
 
@@ -249,25 +249,15 @@ body.disable-hover #navbar-top .mdc-button:hover, body.disable-hover #navbar-top
 	#router-view
 		width 100%
 		margin-top 0
-		padding-top 30px
 		height 100%
+		padding 30px 24px
 
-@media only screen and (max-width 470px)
+@media only screen and (max-width 470px), only screen and (max-height 692px)
 	.github:not(.github-sidebar)
 		display none
 
 	#router-view
 		margin-top 0
-		padding 14px
-		padding-top 21px
-		height 100%
-
-@media only screen and (max-height 678px)
-	.github:not(.github-sidebar)
-		display none
-
-	#router-view
-		margin-top 0
-		padding-top 30px
+		padding 24px 18px
 		height 100%
 </style>

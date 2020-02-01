@@ -2,15 +2,20 @@
 
 <template>
 	<glass-card title="Kontakt" showBackButton>
-		<div class="row column-sm justify-space-between-sm height-100">
-			<div class="width-50 width-100-sm height-100 height-50-sm" ref="contact">
+		<div
+			class="row column-sm height-100 justify-space-between"
+			ref="container"
+		>
+			<div class="width-50 width-100-sm" id="contact">
 				Adresse
 				<div class="subline">Junior Fullstack Entwickler</div>
 			</div>
 
-			<div class="width-50 width-100-sm height-50-sm">
-				<div id="map" :style="{ height: mapHeight }"></div>
-			</div>
+			<div
+				id="map"
+				class="width-50 width-100-sm"
+				:style="{ height: mapHeight }"
+			></div>
 		</div>
 	</glass-card>
 </template>
@@ -76,14 +81,32 @@ export default {
 	},
 	methods: {
 		resizeMap() {
-			this.mapHeight = window.getComputedStyle(this.$refs.contact).height;
+			this.mapHeight = window.getComputedStyle(
+				this.$refs.container
+			).height;
 		}
 	}
 };
 </script>
 
 <style scoped>
+#contact {
+	flex-shrink: 0;
+	height: auto;
+	margin-bottom: 32px;
+}
+
 #map {
 	min-height: 250px !important;
+}
+
+@media only screen and (max-width: 764px) {
+	#contact {
+		margin-bottom: 32px;
+	}
+
+	#map {
+		max-height: 50% !important;
+	}
 }
 </style>

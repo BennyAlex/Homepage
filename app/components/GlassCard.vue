@@ -2,7 +2,7 @@
 
 <template>
 	<div class="glass-card column mdc-elevation--z10">
-		<div class="title-bar row align-center no-select">
+		<div class="row align-center no-select">
 			<div class="icon" v-if="showBackButton">
 				<icon-button @click.native="goBack">
 					arrow_back
@@ -15,7 +15,10 @@
 		<div class="card-content os-host-flexbox">
 			<overlay-scrollbars
 				:options="{
-					className: 'os-theme-dark width-100 height-100 card-scrollbar'
+					className:
+						'os-theme-dark width-100 height-100 card-scrollbar',
+					overflowBehavior: { x: 'hidden' 
+					}
 				}"
 			>
 				<slot></slot>
@@ -60,9 +63,6 @@ export default {
 	font-size 19px
 	color rgba(0, 0, 0, 0.75)
 	padding 13px
-
-.title-bar
-	margin-bottom 10px
 
 .icon
 	width 33.333%
