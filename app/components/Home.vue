@@ -2,15 +2,14 @@
 
 <template>
 	<glass-card title="Willkommen!">
-		<div class="row column-sm align-center height-100">
-			<div class="height-100" id="image-container">
-				<img src="../images/selfie.png" class="height-100" />
-			</div>
+		<div class="row column-sm align-center height-100" id="container">
+			<img
+				src="../images/selfie.png"
+				class="height-100"
+				id="image"
+			/>
 
-			<div
-				class="width-100 column align-center justify-center"
-				id="me"
-			>
+			<div class="column align-center justify-center" id="me">
 				<div id="name">
 					Ich bin Benjamin Franz
 				</div>
@@ -42,19 +41,24 @@ export default {
 
 <style scoped>
 .mdc-button {
-	margin: 56px;
+	margin-top: 56px;
+	margin-bottom: 13px;
 	min-height: 62px;
 	height: 62px;
 	padding: 0 42px;
 }
 
+#container {
+	min-height: 200px;
+}
+
 #me {
 	margin-right: -13px;
-	min-height: 255px;
+	flex-grow: 1;
+	flex-shrink: 0;
 }
 
 #name {
-	margin-top: 4px;
 	margin-bottom: 10px;
 	font-weight: 900;
 }
@@ -68,10 +72,12 @@ export default {
 		padding: 0 40px;
 	}
 
-	#image-container {
+	#image {
 		order: 2;
 		justify-content: center;
-		min-height: 380px;
+		height: auto;
+		width: 100%;
+		max-width: 380px;
 	}
 
 	#me {
