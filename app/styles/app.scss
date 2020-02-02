@@ -151,6 +151,16 @@ button {
 	color: rgba(0, 0, 0, 0.7);
 }
 
+.break-word {
+	overflow-wrap: normal;
+	word-break: normal;
+	white-space: pre-line;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+}
+
 .card-scrollbar .os-scrollbar-vertical {
 	position: fixed !important;
 	top: 72px !important;

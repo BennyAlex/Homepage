@@ -21,10 +21,11 @@
 					<i class="material-icons">
 						email
 					</i>
-					<div>
+					<div class="break-word">
 						<span class="subline"> Email</span> <br />
 						<a
 							id="mail"
+							class="break-word"
 							href="mailto:benjamin.alexander.franz@gmail.com"
 							>benjamin.alexander.franz@gmail.com
 						</a>

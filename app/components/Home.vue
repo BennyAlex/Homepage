@@ -5,19 +5,22 @@
 		<div class="row column-sm align-center height-100" id="container">
 			<img src="../images/selfie.png" class="height-100" id="image" />
 
-			<div class="column align-center justify-center" id="me">
-				<div id="name">
+			<div
+				class="column align-center justify-center center width-100-sm"
+				id="me"
+			>
+				<span id="name" class="">
 					Ich bin Benjamin Franz
-				</div>
-				<div class="subline center">
+				</span>
+				<span class="subline center">
 					Junior Fullstack Entwickler<br />
 					mit Leidenschaft für Webentwicklung
-				</div>
+				</span>
 				<md-button
 					class="mdc-button--raised mdc-elevation--z6"
 					href="https://bennyalex.github.io/Lebenslauf/"
 				>
-					<div class="row align-center">
+					<div class="row">
 						<span class="mdc-button-label">Lebenslauf</span>
 						<i class="material-icons mdc-button__icon">
 							assignment
@@ -43,7 +46,6 @@ export default {
 <style scoped>
 .mdc-button {
 	margin-top: 56px;
-	margin-bottom: 13px;
 	min-height: 62px;
 	height: 62px;
 	padding: 0 42px;
@@ -55,11 +57,14 @@ export default {
 	font-size: 22px;
 	height: 22px;
 	width: 22px;
-	margin-left: 10px;
+	padding-top: 1px;
+	margin-left: 14px;
+	margin-right: 0;
 }
 
 .mdc-button-label {
 	font-size: 19px;
+	padding-bottom: 1px;
 }
 
 #container {
@@ -78,17 +83,18 @@ export default {
 	font-size: 22px;
 }
 
-.mdc-button:hover {
+body:not(.disable-hover) .mdc-button:hover {
 	transform: scale(1.04);
 }
 
 @media only screen and (max-width: 764px) {
 	.mdc-button {
-		margin: 46px;
-		margin-bottom: 62px;
-		min-height: 54px;
-		height: 54px;
-		padding: 0 40px;
+		margin-top: 40px;
+		margin-bottom: 46px;
+		min-height: 52px;
+		height: 52px;
+		padding: 0 36px;
+		font-size: 20px;
 	}
 
 	#image {
@@ -105,7 +111,7 @@ export default {
 	}
 
 	#name {
-		margin-top: 46px;
+		margin-top: 22px;
 	}
 }
 </style>

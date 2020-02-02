@@ -29,8 +29,7 @@
 			</div>
 			<img
 				src="../images/md-color-picker.png"
-				style="width: 20%"
-				class="width-50-sm"
+				id="mdcp-img"
 			/>
 		</div>
 		<div class="project mfc">
@@ -86,6 +85,11 @@ export default {
 <style scoped>
 .project {
 	padding: 0 9px;
+	margin-top: 24px;
+}
+
+#mdcp-img {
+	width: 20%;
 }
 
 .preview-images {
@@ -106,7 +110,7 @@ export default {
 	transition: all 0.2s ease-in-out;
 }
 
-.preview-images img:hover {
+body:not(.disable-hover) .preview-images img:hover {
 	transform: scale(1.06);
 }
 
@@ -121,11 +125,11 @@ export default {
 	padding: 0 22px;
 }
 
-.project {
-	margin-top: 24px;
-}
-
 @media only screen and (max-width: 788px) {
+	#mdcp-img {
+		width: 75%;
+	}
+
 	.project.mfc {
 		margin-top: 44px;
 	}
