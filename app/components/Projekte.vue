@@ -36,7 +36,10 @@
 		</div>
 		<div class="project mfc">
 			<b>Mainfrankencard-Datenbank</b>
-			<div class="subline">Mein Abschlussprojekt. Internes Tool zum Verwalten von Mainfrankencard Partnern und Angeboten</div>
+			<div class="subline">
+				Mein Abschlussprojekt. Internes Tool zum Verwalten von
+				Mainfrankencard Partnern und Angeboten
+			</div>
 
 			<div class="preview-images">
 				<div v-for="img in images" :key="img.id">
@@ -103,6 +106,11 @@ export default {
 	height: auto;
 	border-radius: 7px;
 	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.preview-images img:hover {
+	transform: scale(1.06);
 }
 
 .project .mdc-button {

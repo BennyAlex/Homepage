@@ -3,12 +3,52 @@
 <template>
 	<glass-card title="Kontakt" showBackButton>
 		<div
-			class="row column-sm height-100 justify-space-between"
+			class="row column-sm height-100 justify-space-between align-center"
 			ref="container"
 		>
 			<div class="width-50 width-100-sm" id="contact">
-				Adresse
-				<div class="subline">Junior Fullstack Entwickler</div>
+				<div class="row align-center">
+					<i class="material-icons">
+						my_location
+					</i>
+					<div>
+						<span class="subline"> Adresse</span> <br />
+						Wagnergäßchen 10 <br />
+						97204 Höchberg
+					</div>
+				</div>
+				<div class="row align-center">
+					<i class="material-icons">
+						email
+					</i>
+					<div>
+						<span class="subline"> Email</span> <br />
+						<a
+							id="mail"
+							href="mailto:benjamin.alexander.franz@gmail.com"
+							>benjamin.alexander.franz@gmail.com
+						</a>
+					</div>
+				</div>
+				<div class="row align-center">
+					<i class="material-icons">
+						phone
+					</i>
+					<div>
+						<span class="subline"> Telefon</span> <br />
+						<a href="tel:+4901714883330">+49 0171 4883330</a>
+					</div>
+				</div>
+				<div class="row align-center">
+					<i class="material-icons">
+						cake
+					</i>
+					<div>
+						<span class="subline"> Geburtstag</span> <br />
+						am 06.02.1998 <br />
+						in Aschaffenburg
+					</div>
+				</div>
 			</div>
 
 			<div
@@ -93,11 +133,38 @@ export default {
 #contact {
 	flex-shrink: 0;
 	height: auto;
-	margin-bottom: 32px;
+}
+
+#contact a {
+	text-decoration: none;
+	color: rgba(0, 0, 0, 0.75);
+}
+
+#contact .row {
+	margin-bottom: 30px;
+}
+
+#contact i {
+	font-size: 29px;
+	height: 29px;
+	width: 29px;
+	line-height: 29px;
+	margin-right: 19px;
+	color: rgba(0, 0, 0, 0.8);
+}
+
+#mail {
+	font-size: 15px;
+	text-decoration: none;
+	color: rgba(0, 0, 0, 0.9);
+}
+
+#contact a:hover {
+	text-decoration: underline;
 }
 
 #map {
-	min-height: 250px !important;
+	min-height: 260px !important;
 }
 
 @media only screen and (max-width: 764px) {

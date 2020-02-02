@@ -60,7 +60,7 @@ export default {
 	border-radius 8px
 	background rgba(255, 255, 255, 0.25)
 	backdrop-filter blur(5px)
-	font-size 19px
+	font-size 20px
 	color rgba(0, 0, 0, 0.75)
 	padding 13px
 
@@ -72,7 +72,7 @@ export default {
 }
 
 .title
-	font-size 22px
+	font-size 23px
 	color rgba(0, 0, 0, 0.8)
 	width 33.333%
 	text-align center

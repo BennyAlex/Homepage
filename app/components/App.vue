@@ -236,7 +236,7 @@ body.disable-hover #navbar-top .mdc-button:hover, body.disable-hover #navbar-top
 	margin-top -8px // 3/4 of github bottom
 	padding 14px
 	width 760px
-	height 546px
+	height 548px
 
 
 @media only screen and (max-width 764px)

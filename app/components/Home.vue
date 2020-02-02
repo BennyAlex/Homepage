@@ -3,11 +3,7 @@
 <template>
 	<glass-card title="Willkommen!">
 		<div class="row column-sm align-center height-100" id="container">
-			<img
-				src="../images/selfie.png"
-				class="height-100"
-				id="image"
-			/>
+			<img src="../images/selfie.png" class="height-100" id="image" />
 
 			<div class="column align-center justify-center" id="me">
 				<div id="name">
@@ -19,9 +15,14 @@
 				</div>
 				<md-button
 					class="mdc-button--raised mdc-elevation--z6"
-					href="https://github.com/BennyAlex/material-design-inspired-color-picker"
+					href="https://bennyalex.github.io/Lebenslauf/"
 				>
-					Lebenslauf
+					<div class="row align-center">
+						<span class="mdc-button-label">Lebenslauf</span>
+						<i class="material-icons mdc-button__icon">
+							assignment
+						</i>
+					</div>
 				</md-button>
 			</div>
 		</div>
@@ -46,6 +47,19 @@ export default {
 	min-height: 62px;
 	height: 62px;
 	padding: 0 42px;
+	font-size: 22px;
+	transition: all 0.25s ease-in-out;
+}
+
+.mdc-button__icon {
+	font-size: 22px;
+	height: 22px;
+	width: 22px;
+	margin-left: 10px;
+}
+
+.mdc-button-label {
+	font-size: 19px;
 }
 
 #container {
@@ -61,6 +75,11 @@ export default {
 #name {
 	margin-bottom: 10px;
 	font-weight: 900;
+	font-size: 22px;
+}
+
+.mdc-button:hover {
+	transform: scale(1.04);
 }
 
 @media only screen and (max-width: 764px) {
