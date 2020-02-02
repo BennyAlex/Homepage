@@ -1,24 +1,22 @@
 <div align="center" style="text-align: center; margin: 0 auto;">
 
-<h2 style="letter-spacing: 2px; font-weight: 500; margin-bottom: 22px;">
-Meine Profil-Webseite
+<h2 style="letter-spacing: 2px; font-weight: 800; margin-bottom: 24px;">
+Meine Homepage
 </h2>
 
+<div style="display: inline-block;">
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
 
 [![forthebadge](http://forthebadge.com/images/badges/made-with-vue.svg)](http://forthebadge.com)
-
 </div>
 
-<div align="center" style="text-align: center; margin: 0 auto;">
-
-<h3 style="letter-spacing: 2px; font-weight: 500; margin-bottom: 22px;">
+<h3 style="font-weight: 500; margin-bottom: 24px;">
 To-Do's
 </h3>
 
-<ul>
+<ul style="list-style-type: none;">
     <li>
-        Footer (includes github and language & theme switcher)
+        Footer (includes github code link and language & theme switcher)
     </li>
     <li>
         Dark Theme

@@ -1,16 +1,16 @@
 {
-	"name": "resuemee",
-	"description": "Mein Resümee",
+	"name": "Homepage",
+	"description": "Meine Homepage",
 	"version": "1.0.0",
 	"license": "GPL-3.0",
 	"main": "app/app.js",
 	"author": {
 		"name": "Benjamin Franz",
-		"url": "https://github.com/BennyAlex/Resuemee"
+		"url": "https://github.com/BennyAlex/Homepage"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/BennyAlex/Resuemee.git"
+		"url": "https://github.com/BennyAlex/Homepage.git"
 	},
 	"scripts": {
 		"dev": "rimraf dist && parcel app/index.html -d dist --no-cache --open",
