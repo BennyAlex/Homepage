@@ -3,7 +3,6 @@
 <template>
 	<glass-card title="Projekte" showBackButton>
 		2 Projekte, die ich während meiner Ausbildung programmiert habe:
-		<br /><br />
 		<div class="project row column-sm align-center-sm">
 			<div style="width: 80%" class="column width-100-sm">
 				<div>
@@ -13,7 +12,7 @@
 						inspiriert
 					</div>
 				</div>
-				<div class="row grow align-center justify-center">
+				<div class="row grow align-center justify-center wrap buttons">
 					<md-button
 						class="mdc-button--unelevated"
 						href="https://bennyalex.github.io/material-design-inspired-color-picker/"
@@ -41,8 +40,8 @@
 				Mainfrankencard Partnern und Angeboten
 			</div>
 
-			<div class="preview-images">
-				<div v-for="img in images" :key="img.id">
+			<div class="preview-images row wrap align-center">
+				<div v-for="img in images" :key="img.id" class="width-100-sm">
 					<img
 						@click="showImageGallery(img.name)"
 						:src="img.name"
@@ -86,18 +85,16 @@ export default {
 
 <style scoped>
 .project {
-	padding: 0 8px;
+	padding: 0 9px;
 }
 
 .preview-images {
-	padding-top: 8px;
-	display: flex;
-	align-items: center;
+	padding-top: 9px;
 }
 
 .preview-images div {
 	width: 33%;
-	padding: 8px;
+	padding: 9px;
 	padding-bottom: 0;
 }
 
@@ -113,17 +110,24 @@ export default {
 	transform: scale(1.06);
 }
 
-.project .mdc-button {
-	margin: 18px 10px;
+.project .buttons {
+	margin: 20px 0;
 }
 
-.project.mfc {
-	margin-top: 18px;
+.project .mdc-button {
+	margin: 10px;
+	line-height: 40px;
+	height: 40px;
+	padding: 0 20px;
+}
+
+.project {
+	margin-top: 24px;
 }
 
 @media only screen and (max-width: 788px) {
-	.project .mdc-button {
-		margin: 18px 0;
+	.project.mfc {
+		margin-top: 44px;
 	}
 
 	.project .mdc-button:first-child {

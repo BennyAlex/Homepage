@@ -236,7 +236,7 @@ body.disable-hover #navbar-top .mdc-button:hover, body.disable-hover #navbar-top
 	margin-top -8px // 3/4 of github bottom
 	padding 14px
 	width 760px
-	height 548px
+	height 556px
 
 
 @media only screen and (max-width 764px)
@@ -252,7 +252,7 @@ body.disable-hover #navbar-top .mdc-button:hover, body.disable-hover #navbar-top
 		height 100%
 		padding 30px 24px
 
-@media only screen and (max-width 470px), only screen and (max-height 692px)
+@media only screen and (max-width 470px), only screen and (max-height 672px)
 	.github:not(.github-sidebar)
 		display none
 
