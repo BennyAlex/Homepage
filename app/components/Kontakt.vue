@@ -169,7 +169,7 @@ export default {
 
 @media only screen and (max-width: 764px) {
 	#contact {
-		margin-bottom: 32px;
+		margin-bottom: 6px;
 	}
 
 	#map {

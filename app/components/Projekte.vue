@@ -116,9 +116,9 @@ export default {
 
 .project .mdc-button {
 	margin: 10px;
-	line-height: 40px;
-	height: 40px;
-	padding: 0 20px;
+	line-height: 42px;
+	height: 42px;
+	padding: 0 22px;
 }
 
 .project {
