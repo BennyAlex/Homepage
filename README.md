@@ -8,6 +8,7 @@ Meine Homepage
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
 
 [![forthebadge](http://forthebadge.com/images/badges/made-with-vue.svg)](http://forthebadge.com)
+
 </div>
 
 <h3 style="font-weight: 500; margin-bottom: 24px;">
@@ -15,6 +16,12 @@ To-Do's
 </h3>
 
 <ul style="list-style-type: none;">
+    <li>
+        Smaller text size on mobile
+    </li>
+    <li>
+        CV included directly as page
+    </li>
     <li>
         Footer (includes github code link and language & theme switcher)
     </li>
