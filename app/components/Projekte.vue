@@ -28,9 +28,13 @@
 				</div>
 			</div>
 			<img
-				src="../images/md-color-picker.png"
+				src="../images/MD Color Picker.png"
 				id="mdcp-img"
+				@click="showPickerImage()"
+				alt="Color Picker"
+				title="Color Picker"
 			/>
+			<image-gallery ref="pickerImage" :images="pickerImage" />
 		</div>
 		<div class="project mfc">
 			<b>Mainfrankencard-Datenbank</b>
@@ -40,7 +44,11 @@
 			</div>
 
 			<div class="preview-images row wrap align-center">
-				<div v-for="img in images" :key="img.id" class="width-100-sm">
+				<div
+					v-for="img in mfcImages"
+					:key="img.id"
+					class="width-100-sm"
+				>
 					<img
 						@click="showImageGallery(img.name)"
 						:src="img.name"
@@ -50,7 +58,7 @@
 				</div>
 			</div>
 
-			<image-gallery ref="imageGallery" :images="images" />
+			<image-gallery ref="imageGallery" :images="mfcImages" />
 		</div>
 	</glass-card>
 </template>
@@ -60,23 +68,28 @@ import GlassCard from "./GlassCard.vue";
 import ImageGallery from "./ImageGallery.vue";
 import MdButton from "./MdButton.vue";
 
-const images = require("../images/mfc/*.png");
+const mfcImages = require("../images/mfc/*.png");
+const pickerImage = require("../images/MD Color Picker.png");
 
 let id = 0;
-const imageList = Object.keys(images).map(key => {
+const mfcImageList = Object.keys(mfcImages).map(key => {
 	id++;
-	return { alt: key, name: images[key], id: id };
+	return { alt: key, name: mfcImages[key], id: id };
 });
 
 export default {
 	name: "Projekte",
 	components: { GlassCard, ImageGallery, MdButton },
 	data: () => ({
-		images: imageList
+		mfcImages: mfcImageList,
+		pickerImage: [{ alt: "MD Color Picker", name: pickerImage, id: 0 }]
 	}),
 	methods: {
 		showImageGallery(imageName) {
 			this.$refs.imageGallery.show(imageName);
+		},
+		showPickerImage() {
+			this.$refs.pickerImage.show();
 		}
 	}
 };
@@ -90,6 +103,8 @@ export default {
 
 #mdcp-img {
 	width: 20%;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
 }
 
 .preview-images {
@@ -110,7 +125,7 @@ export default {
 	transition: all 0.2s ease-in-out;
 }
 
-body:not(.disable-hover) .preview-images img:hover {
+body:not(.disable-hover) .preview-images img:hover, body:not(.disable-hover) #mdcp-img:hover {
 	transform: scale(1.06);
 }
 

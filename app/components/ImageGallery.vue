@@ -40,14 +40,14 @@
 					</transition>
 				</div>
 				<transition name="image-gallery-fade">
-					<div
+					<span
 						class="image-gallery-caption mdc-elevation--z12"
 						v-show="controlsVisible && images[index].alt"
 						@mousedown.stop
 						@touchdown.stop
 					>
-						<span unselectable="on">{{ images[index].alt }}</span>
-					</div>
+						<span>{{ images[index].alt }}</span>
+					</span>
 				</transition>
 				<div
 					class="image-gallery-main"
@@ -63,14 +63,7 @@
 							<div
 								class="image-gallery-image"
 								:key="index"
-								:style="{
-									backgroundImage:
-										'url(' +
-										directory +
-										images[index].name +
-										')'
-								}"
-							></div>
+								:style="imageStyle()"></div>
 						</transition>
 					</div>
 				</div>
@@ -129,18 +122,24 @@ export default {
 			this.controlsVisible = true;
 			var that = this;
 
-			// Find the index of the image passed to image-gallery
-			for (var i = 0; i < this.images.length; i++) {
-				if (this.images[i].name == imageName) {
-					this.index = i;
-					break;
+			if (imageName) {
+				// Find the index of the image passed to image-gallery
+				for (var i = 0; i < this.images.length; i++) {
+					if (this.images[i].name == imageName) {
+						this.index = i;
+						break;
+					}
 				}
 			}
+
 			clearTimeout(this.timer);
 			this.timer = setTimeout(function() {
 				that.controlsVisible = false;
 			}, that.timeoutDuration);
-			this.preloadNextImage();
+			this.preloadNeighbourImages();
+		},
+		imageStyle() {
+			return {'background-image': 'url("' + this.directory + this.images[this.index].name +'")'}
 		},
 		hide() {
 			this.visible = false;
@@ -157,13 +156,14 @@ export default {
 			if (this.has_prev()) {
 				this.slideTransitionName = "image-gallery-slide-prev";
 				this.index -= 1;
+				this.preloadNeighbourImages()
 			}
 		},
 		next() {
 			if (this.has_next()) {
 				this.slideTransitionName = "image-gallery-slide-next";
 				this.index += 1;
-				this.preloadNextImage();
+				this.preloadNeighbourImages();
 			}
 		},
 		keyEventListener(e) {
@@ -206,12 +206,19 @@ export default {
 				}, that.timeoutDuration);
 			}
 		},
-		preloadNextImage() {
+		preloadNeighbourImages() {
 			if (this.has_next()) {
 				try {
 					var _img = new Image();
 					_img.src =
 						this.directory + this.images[this.index + 1].name;
+				} catch (e) {}
+			}
+			if (this.has_prev()) {
+				try {
+					var _img = new Image();
+					_img.src =
+						this.directory + this.images[this.index - 1].name;
 				} catch (e) {}
 			}
 		}
@@ -282,6 +289,7 @@ export default {
 .image-gallery-image-container {
 	width: 20%;
 	flex: 1;
+	padding: 60px;
 }
 
 .image-gallery-image {
@@ -294,8 +302,7 @@ export default {
 
 .image-gallery-caption {
 	position: absolute;
-	bottom: 15px;
-	width: 100%;
+	bottom: 20px;
 	z-index: 100;
 	text-align: center;
 }
@@ -349,5 +356,11 @@ export default {
 .image-gallery-fade-enter,
 .image-gallery-fade-leave-to {
 	opacity: 0;
+}
+
+@media only screen and (max-width: 788px) {
+	.image-gallery-image-container {
+		padding: 8px;
+	}
 }
 </style>
