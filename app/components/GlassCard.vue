@@ -85,4 +85,11 @@ export default {
 	height 100%
 	padding 13px
 	position relative
+
+@media only screen and (max-width 764px)
+	.glass-card
+		font-size 18px
+
+	.title
+		font-size 21px
 </style>

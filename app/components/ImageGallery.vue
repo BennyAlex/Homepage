@@ -63,7 +63,8 @@
 							<div
 								class="image-gallery-image"
 								:key="index"
-								:style="imageStyle()"></div>
+								:style="imageStyle()"
+							></div>
 						</transition>
 					</div>
 				</div>
@@ -139,7 +140,13 @@ export default {
 			this.preloadNeighbourImages();
 		},
 		imageStyle() {
-			return {'background-image': 'url("' + this.directory + this.images[this.index].name +'")'}
+			return {
+				"background-image":
+					'url("' +
+					this.directory +
+					this.images[this.index].name +
+					'")'
+			};
 		},
 		hide() {
 			this.visible = false;
@@ -156,7 +163,7 @@ export default {
 			if (this.has_prev()) {
 				this.slideTransitionName = "image-gallery-slide-prev";
 				this.index -= 1;
-				this.preloadNeighbourImages()
+				this.preloadNeighbourImages();
 			}
 		},
 		next() {
@@ -358,9 +365,9 @@ export default {
 	opacity: 0;
 }
 
-@media only screen and (max-width: 788px) {
+@media only screen and (max-width: 470px) {
 	.image-gallery-image-container {
-		padding: 8px;
+		padding: 10px;
 	}
 }
 </style>

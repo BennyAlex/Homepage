@@ -17,9 +17,6 @@ To-Do's
 
 <ul style="list-style-type: none;">
     <li>
-        Smaller text size on mobile
-    </li>
-    <li>
         CV included directly as page
     </li>
     <li>

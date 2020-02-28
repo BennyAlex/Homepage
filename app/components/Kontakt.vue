@@ -37,7 +37,9 @@
 					</i>
 					<div>
 						<span class="subline"> Telefon</span> <br />
-						<a href="tel:+4901714883330">+49 0171 4883330</a>
+						<a id="phone" href="tel:+4901714883330"
+							>+49 0171 4883330</a
+						>
 					</div>
 				</div>
 				<div class="row align-center">
@@ -171,6 +173,13 @@ export default {
 @media only screen and (max-width: 764px) {
 	#contact {
 		margin-bottom: 6px;
+	}
+
+	#contact i {
+		font-size: 27px;
+		height: 27px;
+		width: 27px;
+		line-height: 27px;
 	}
 
 	#map {

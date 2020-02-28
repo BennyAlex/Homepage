@@ -101,10 +101,14 @@ export default {
 	margin-top: 24px;
 }
 
-#mdcp-img {
-	width: 20%;
+img {
+	border-radius: 7px;
 	cursor: pointer;
 	transition: all 0.2s ease-in-out;
+}
+
+#mdcp-img {
+	width: 20%;
 }
 
 .preview-images {
@@ -120,12 +124,10 @@ export default {
 .preview-images img {
 	width: 100%;
 	height: auto;
-	border-radius: 7px;
-	cursor: pointer;
-	transition: all 0.2s ease-in-out;
 }
 
-body:not(.disable-hover) .preview-images img:hover, body:not(.disable-hover) #mdcp-img:hover {
+body:not(.disable-hover) .preview-images img:hover,
+body:not(.disable-hover) #mdcp-img:hover {
 	transform: scale(1.06);
 }
 
@@ -140,7 +142,7 @@ body:not(.disable-hover) .preview-images img:hover, body:not(.disable-hover) #md
 	padding: 0 22px;
 }
 
-@media only screen and (max-width: 788px) {
+@media only screen and (max-width: 764px) {
 	#mdcp-img {
 		width: 75%;
 	}

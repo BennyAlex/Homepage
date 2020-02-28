@@ -112,6 +112,7 @@ body:not(.disable-hover) .mdc-button:hover {
 
 	#name {
 		margin-top: 22px;
+		font-size: 20px
 	}
 }
 </style>

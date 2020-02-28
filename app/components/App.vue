@@ -28,10 +28,6 @@
 				Benjamin Franz
 			</md-button>
 
-			<!-- <md-button @click.native="transitionTo($event, '/')">
-				Lebenslauf
-			</md-button> -->
-
 			<md-button @click.native="transitionTo($event, '/kontakt')">
 				Kontakt
 			</md-button>
@@ -48,10 +44,6 @@
 		</div>
 
 		<div id="sidebar" ref="sidebar" class="mdc-elevation--z1">
-			<!-- <md-button @click.native="transitionTo($event, '/')">
-				Lebenslauf
-			</md-button> -->
-
 			<md-button @click.native="transitionTo($event, '/kontakt')">
 				Kontakt
 			</md-button>
@@ -226,17 +218,19 @@ body.disable-hover #navbar-top .mdc-button:hover, body.disable-hover #navbar-top
 
 .github
 	position absolute
-	color rgba(255, 255, 255, 0.8)
-	bottom 12px
+	color rgba(255, 255, 255, 0.9)
+	bottom 16px
 	left 50%
 	transform translate(-50%, 0)
 	text-decoration none
+	font-size 17px
+	line-height 17px
 
 #router-view
 	margin-top -8px // 3/4 of github bottom
 	padding 14px
 	width 760px
-	height 556px
+	height 586px
 
 
 @media only screen and (max-width 764px)
@@ -252,7 +246,7 @@ body.disable-hover #navbar-top .mdc-button:hover, body.disable-hover #navbar-top
 		height 100%
 		padding 30px 24px
 
-@media only screen and (max-width 470px), only screen and (max-height 672px)
+@media only screen and (max-width 470px), only screen and (max-height 700px)
 	.github:not(.github-sidebar)
 		display none
 
