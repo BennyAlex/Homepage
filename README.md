@@ -1,12 +1,13 @@
 <div align="center" style="text-align: center; margin: 0 auto;">
 
-<h2 style="letter-spacing: 2px; font-weight: 800; margin-bottom: 28px;">
+<h2 style="letter-spacing: 2px;">
 Meine Homepage
 </h2>
 
+<br/>
+
 ![Made with Vue](https://forthebadge.com/images/badges/made-with-vue.svg)
 
-<br/>
 
 ![Made with Love](https://forthebadge.com/images/badges/built-with-love.svg)
 
