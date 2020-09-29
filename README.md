@@ -9,7 +9,7 @@ Meine Homepage
 ![Made with Vue](https://forthebadge.com/images/badges/made-with-vue.svg)
 
 
-![Made with Love](https://forthebadge.com/images/badges/built-with-love.svg)
+![Build with Love](https://forthebadge.com/images/badges/built-with-love.svg)
 
 
 
