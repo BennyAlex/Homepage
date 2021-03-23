@@ -98,7 +98,7 @@ export default {
 <style scoped>
 .project {
 	padding: 0 9px;
-	margin-top: 24px;
+	margin-top: 23px;
 }
 
 img {
