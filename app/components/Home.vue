@@ -3,7 +3,7 @@
 <template>
 	<glass-card title="Willkommen!">
 		<div class="row column-sm align-center height-100" id="container">
-			<img src="../images/selfie2.jpg" class="height-100" id="image" />
+			<img src="../images/selfie2.jpg" class="height-100" id="image"/>
 
 			<div
 				class="column align-center justify-center center width-100-sm"
@@ -13,8 +13,9 @@
 					Ich bin Benjamin Franz
 				</span>
 				<span class="subline center">
-					Junior Fullstack Entwickler<br />
-					mit Leidenschaft für Webentwicklung
+					Fullstack Entwickler <br>
+					mit Leidenschaft für <br>
+					JavaScript Frameworks
 				</span>
 				<md-button
 					class="mdc-button--raised mdc-elevation--z6"
@@ -33,14 +34,14 @@
 </template>
 
 <script>
-import GlassCard from "./GlassCard.vue";
-import MdButton from "./MdButton.vue";
+import GlassCard from './GlassCard.vue'
+import MdButton from './MdButton.vue'
 
 export default {
-	name: "Home",
-	components: { GlassCard, MdButton },
+	name: 'Home',
+	components: {GlassCard, MdButton},
 	data: () => ({})
-};
+}
 </script>
 
 <style scoped>
