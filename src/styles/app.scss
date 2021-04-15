@@ -1,0 +1,257 @@
+@use '@material/button/mdc-button';
+@use '@material/button';
+@use "@material/icon-button/mdc-icon-button";
+@use "@material/elevation/mdc-elevation";
+
+:root {
+  --mdc-theme-primary: #000000;
+  --mdc-theme-secondary: #000000;
+  --mdc-theme-on-primary: #fff;
+  --mdc-theme-on-secondary: #fff;
+}
+
+@charset "utf-8";
+
+@import " ~leaflet/dist/leaflet.css";
+@import "~overlayscrollbars/css/OverlayScrollbars.css";
+
+@import "./menu.scss";
+
+// ----- main styles -----
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	border: 0;
+	font-family: "Roboto Slab", serif;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body,
+#app {
+	height: 100%;
+	overflow: hidden;
+}
+
+#app {
+	width: 100%;
+}
+
+body {
+	background: url("~@/images/background.jpg") no-repeat center center fixed;
+
+	/* This is what makes the background image rescale based
+     on the container's size */
+	background-size: cover;
+
+	/* Set a background color that will be displayed
+     while the background image is loading */
+	background-color: rgb(43 82 153);
+}
+
+.center {
+	text-align: center;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+}
+
+.align-stretch {
+	align-items: stretch;
+}
+
+.align-center {
+	align-items: center;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.justify-space-between {
+	justify-content: space-between;
+}
+
+.justify-space-around {
+	justify-content: space-around;
+}
+
+.justify-stretch {
+	justify-content: stretch;
+}
+
+.grow {
+	flex-grow: 1;
+}
+
+.wrap {
+	flex-wrap: wrap;
+}
+
+.width-50 {
+	width: 50%;
+}
+
+.height-50 {
+	height: 50%;
+}
+
+.width-100 {
+	width: 100%;
+}
+
+.height-100 {
+	height: 100%;
+}
+
+.no-select,
+button,
+a:not(#mail):not(#phone),
+.material-icons {
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+}
+
+button,
+.mdc-button {
+	-webkit-appearance: none;
+	appearance: none;
+	outline: none;
+	text-transform: none;
+}
+
+a,
+button {
+	cursor: pointer;
+}
+
+.mdc-button-round,
+.mdc-button-round .mdc-button__ripple {
+	border-radius: 20px;
+}
+
+.mdc-button--outlined:not(:disabled) {
+  border: 1px solid #000000;
+}
+
+.subline {
+	font-size: 18px;
+	color: rgba(0, 0, 0, 0.7);
+}
+
+.break-word {
+	overflow-wrap: normal;
+	word-break: normal;
+	white-space: pre-line;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+}
+
+.card-scrollbar .os-scrollbar-vertical {
+	position: fixed !important;
+	top: 72px !important;
+	bottom: 24px !important;
+	right: 8px !important;
+}
+
+.card-scrollbar .os-content {
+	padding-top: 13px !important;
+}
+
+inputfocus,
+selectfocus,
+textareafocus,
+buttonfocus {
+	outline: none;
+}
+
+noscript p {
+	position: fixed;
+	top: 5%;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 18px;
+}
+
+.fade-enter-active {
+	transition: opacity 0.4s ease;
+}
+
+.fade-leave-active {
+	transition: all 0.4s ease;
+	opacity: 0.4;
+}
+
+.fade-enter,
+.fade-leave-to {
+	opacity: 0;
+}
+
+// sm for small screens
+@media only screen and (max-width: 764px) {
+	.width-50-sm {
+		width: 50% !important;
+	}
+
+	.height-50-sm {
+		height: 50% !important;
+	}
+
+	.width-100-sm {
+		width: 100% !important;
+	}
+
+	.height-100-sm {
+		height: 100% !important;
+	}
+
+	.row-sm {
+		display: flex !important;
+		flex-direction: row !important;
+	}
+
+	.column-sm {
+		display: flex !important;
+		flex-direction: column !important;
+	}
+
+	.align-stretch-sm {
+		align-items: stretch !important;
+	}
+
+	.align-center-sm {
+		align-items: center !important;
+	}
+
+	.justify-center-sm {
+		justify-content: center !important;
+	}
+
+	.justify-space-between-sm {
+		justify-content: space-between !important;
+	}
+
+	// font ajustment, all -2px
+
+	.subline {
+		font-size: 16px;
+	}
+}

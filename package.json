@@ -1,47 +1,41 @@
 {
-	"name": "Homepage",
-	"description": "Meine Homepage",
-	"version": "1.0.0",
-	"license": "GPL-3.0",
-	"main": "app/app.js",
-	"author": {
-		"name": "Benjamin Franz",
-		"url": "https://github.com/BennyAlex/Homepage"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/BennyAlex/Homepage.git"
-	},
-	"scripts": {
-		"dev": "rimraf dist && parcel app/index.html -d dist --no-cache --open",
-		"build": "rimraf docs && parcel build app/index.html -d docs --no-cache --no-source-maps --log-level 3 --public-url ./ --experimental-scope-hoisting",
-		"clean": "rimraf docs .parcel dist"
-	},
-	"devDependencies": {
-		"@babel/core": "^7.8.3",
-		"@babel/preset-env": "^7.8.3",
-		"@vue/component-compiler-utils": "^3.1.1",
-		"autoprefixer": "^9.7.4",
-		"cssnano": "~4.1.7",
-		"parcel": "^1.12.4",
-		"rimraf": "^3.0.1",
-		"sass": "^1.25.0",
-		"stylus": "~0.54.7",
-		"vue-hot-reload-api": "~2.3.4",
-		"vue-template-compiler": "~2.6.10"
-	},
-	"dependencies": {
-		"@material/button": "^4.0.0",
-		"@material/density": "^4.0.0",
-		"@material/elevation": "^4.0.0",
-		"@material/icon-button": "^4.0.0",
-		"@material/ripple": "^4.0.0",
-		"leaflet": "^1.6.0",
-		"normalize": "^0.3.1",
-		"normalize.css": "^8.0.1",
-		"overlayscrollbars": "^1.10.2",
-		"overlayscrollbars-vue": "^0.2.1",
-		"vue": "~2.6.10",
-		"vue-router": "~3.1.3"
-	}
+  "name": "homepage",
+  "version": "2.0.0",
+  "private": false,
+  "scripts": {
+    "dev": "vue-cli-service serve --open",
+    "serve": "vue-cli-service serve --open",
+    "build": "rimraf docs && vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@material/button": "^10.0.0",
+    "@material/density": "^10.0.0",
+    "@material/elevation": "^10.0.0",
+    "@material/icon-button": "^10.0.0",
+    "@material/ripple": "^10.0.0",
+    "core-js": "^3.6.5",
+    "leaflet": "^1.7.1",
+    "overlayscrollbars-vue": "^0.2.2",
+    "vue": "^2.6.11",
+    "vue-router": "^3.2.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "sass": "1.26.5",
+    "sass-loader": "^8.0.2",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "vue-template-compiler": "^2.6.11"
+  }
 }
