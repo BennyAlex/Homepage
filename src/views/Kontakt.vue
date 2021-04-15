@@ -64,7 +64,7 @@
 <script>
 import GlassCard from '@/components/GlassCard.vue'
 import L, { map, tileLayer, marker } from 'leaflet'
-import icon from '../images/marker.svg'
+import icon from '@/images/marker.svg'
 
 export default {
     name: 'Kontakt',

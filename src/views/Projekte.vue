@@ -26,7 +26,7 @@
                 </div>
             </div>
             <img
-                src="../images/MD Color Picker.png"
+                src="@/images/MD Color Picker.png"
                 id="mdcp-img"
                 @click="showPickerImage()"
                 alt="Color Picker"
@@ -66,16 +66,18 @@ import GlassCard from '@/components/GlassCard.vue'
 import ImageGallery from '@/components/ImageGallery.vue'
 import MdButton from '@/components/MdButton.vue'
 
-const pickerImage = require('../images/MD Color Picker.png')
+const pickerImage = require('@/images/MD Color Picker.png')
 
-const mfcImages = require.context('../images/mfc/', false, /\.(png)$/)
+const mfcImages = require.context('@/images/mfc/', false, /\.(png)$/)
 
 const mfcImageList = []
 
 mfcImages.keys().forEach((path, index) => {
+    let filename = path.match(/\.\/(.*?)\.png/i)[1]
+
     mfcImageList.push({
-        alt: path.match(/\.\/(.*?)\.png/i)[1],
-        name: path,
+        alt: filename,
+        name: require(`@/images/mfc/${filename}.png`),
         id: index
     })
 })

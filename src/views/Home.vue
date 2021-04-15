@@ -1,7 +1,7 @@
 <template>
     <glass-card title="Willkommen!">
         <div class="row column-sm align-center height-100" id="container">
-            <img src="../images/selfie2.jpg" class="height-100" id="image"/>
+            <img src="@/images/selfie2.jpg" class="height-100" id="image"/>
 
             <div
                 class="column align-center justify-center center width-100-sm"
