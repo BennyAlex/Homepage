@@ -66,21 +66,15 @@ import GlassCard from '@/components/GlassCard.vue'
 import ImageGallery from '@/components/ImageGallery.vue'
 import MdButton from '@/components/MdButton.vue'
 
-// const mfcImages = require("../images/mfc/*.png")
-
 const pickerImage = require('../images/MD Color Picker.png')
 
-function importAll(r) {
-    return r.keys().map(r)
-}
-
-const mfcImages = importAll(require.context('../images/mfc/', false, /\.(png)$/))
+const mfcImages = require.context('../images/mfc/', false, /\.(png)$/)
 
 const mfcImageList = []
 
-mfcImages.forEach((path, index) => {
+mfcImages.keys().forEach((path, index) => {
     mfcImageList.push({
-        alt: path.match(/\/img\/(.*?)\./i)[1],
+        alt: path.match(/\.\/(.*?)\.png/i)[1],
         name: path,
         id: index
     })
