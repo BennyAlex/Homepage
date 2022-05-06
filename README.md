@@ -22,16 +22,10 @@ To-Do's
         CV included directly as page
     </li>
     <li>
-        Footer (includes github code link and language & theme switcher)
-    </li>
-    <li>
         Dark Theme
     </li>
     <li>
         English language support
-    </li>
-    <li>
-        80's Theme
     </li>
     <li>
         Contact Form
