@@ -157,7 +157,7 @@ export default {
   left 0
   width 100%
   height 64px
-  background-color rgba(255, 255, 255, 0.4)
+  background-color rgba(255, 255, 255, 0.6)
   backdrop-filter blur(5px)
   z-index 5
 
