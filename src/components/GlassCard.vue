@@ -56,7 +56,7 @@ export default {
     width 100%
     height 100%
     border-radius 8px
-    background rgba(255, 255, 255, 0.25)
+    background rgba(255, 255, 255, 0.4)
     backdrop-filter blur(5px)
     font-size 20px
     color rgba(0, 0, 0, 0.75)
